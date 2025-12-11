@@ -1,0 +1,283 @@
+<!doctype html>
+<html lang="ru">
+<head>
+  <meta charset="utf-8" />
+  <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+  <meta name="viewport" content="width=device-width,initial-scale=1" />
+  <title>Telegram Grabber PREMIUM 4.0: Конфиг | MyGrab</title>
+  <meta
+    name="description"
+    content="Настройка Telegram Grabber PREMIUM 4.0: обязательные параметры, необязательные ключи и пример JSON-конфига для MyGrab."
+  />
+  <meta name="robots" content="index,follow" />
+  <link rel="canonical" href="https://mygrab.ru/instructions-config" />
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link rel="preconnect" href="https://unpkg.com" crossorigin />
+  <link rel="dns-prefetch" href="//fonts.googleapis.com" />
+  <link rel="dns-prefetch" href="//fonts.gstatic.com" />
+  <link rel="dns-prefetch" href="//unpkg.com" />
+  <link rel="preload" href="styles.css" as="style" />
+  <link rel="preload" as="image" href="assets/images/mygrab-instruction-mini-2.webp" />
+  <link rel="stylesheet" href="styles.css" />
+  <link rel="icon" type="image/webp" href="assets/images/Mygrab-favicon.webp" />
+  <meta property="og:locale" content="ru_RU" />
+  <meta property="og:type" content="article" />
+  <meta property="og:title" content="Telegram Grabber PREMIUM 4.0: Конфиг" />
+  <meta
+    property="og:description"
+    content="Полное руководство по конфигурации MyGrab Premium: обязательные значения, дополнительные ключи и шаблон JSON."
+  />
+  <meta property="og:url" content="https://mygrab.ru/instructions-config" />
+  <meta property="og:site_name" content="MyGrab" />
+  <meta property="og:image" content="https://mygrab.ru/assets/images/mygrab-instruction-mini-2.webp" />
+  <meta property="og:image:secure_url" content="https://mygrab.ru/assets/images/mygrab-instruction-mini-2.webp" />
+  <meta property="og:image:type" content="image/webp" />
+  <meta property="og:image:width" content="1200" />
+  <meta property="og:image:height" content="675" />
+  <meta property="og:image:alt" content="Telegram Grabber PREMIUM 4.0: конфигурация" />
+  <meta name="twitter:card" content="summary_large_image" />
+  <meta name="twitter:title" content="Telegram Grabber PREMIUM 4.0: Конфиг" />
+  <meta
+    name="twitter:description"
+    content="Шаблон и пояснения по настройке конфигурации MyGrab Premium 4.0."
+  />
+  <meta name="twitter:image" content="https://mygrab.ru/assets/images/mygrab-instruction-mini-2.webp" />
+  <meta name="twitter:url" content="https://mygrab.ru/instructions-config" />
+</head>
+<body class="page-config">
+  <header class="site-header" data-header>
+    <div class="container header__inner">
+      <a class="logo" href="/" aria-label="MyGrab — главная">
+        <img
+          src="assets/images/Mygrab-logo-min.webp"
+          alt="MyGrab — логотип сервиса граббера Telegram"
+          class="logo__img"
+          width="200"
+          height="57"
+          decoding="async"
+        />
+      </a>
+      <nav class="main-nav" id="primary-menu" aria-label="Главное меню" data-nav>
+        <ul class="main-nav__list">
+          <li class="main-nav__item"><a class="main-nav__link" href="index.html#features">Возможности</a></li>
+          <li class="main-nav__item"><a class="main-nav__link" href="index.html#instruction">Инструкция</a></li>
+          <li class="main-nav__item"><a class="main-nav__link" href="index.html#how">Как работает</a></li>
+          <li class="main-nav__item"><a class="main-nav__link" href="index.html#blog">Блог</a></li>
+          <li class="main-nav__item"><a class="main-nav__link" href="index.html#contact">Контакты</a></li>
+        </ul>
+      </nav>
+      <a class="btn btn--primary header__cta" href="#contact" data-scroll-to="#contact">Связаться</a>
+    </div>
+  </header>
+
+  <main id="main" role="main">
+    <section class="config-hero" aria-labelledby="config-hero-title">
+      <div class="container config-hero__layout">
+        <div class="config-hero__intro">
+          <p class="config-hero__eyebrow">Версия 4.0</p>
+          <h1 id="config-hero-title" class="config-hero__title">Telegram Grabber PREMIUM 4.0: Конфиг</h1>
+          <p class="config-hero__subtitle">Что нужно для сборки инструкции.</p>
+          <div class="config-hero__links" aria-label="Контакты и ссылки">
+            <a href="https://t.me/k_slavv" target="_blank" rel="noopener">Для покупки: t.me/k_slavv</a>
+            <a href="https://t.me/my_grab" target="_blank" rel="noopener">Группа: t.me/my_grab</a>
+            <a href="https://mygrab.ru" target="_blank" rel="noopener">Сайт: mygrab.ru</a>
+          </div>
+          <p class="config-hero__note">
+            Конфиг вы получаете в формате JSON. Ниже указана рекомендуемая конфигурация: обязательные значения выделены в
+            инструкции белым цветом.
+          </p>
+        </div>
+        <div class="config-hero__preview" aria-hidden="true">
+          <span class="config-hero__badge">Premium 4.0</span>
+          <p class="config-hero__preview-title">Telegram Grabber</p>
+          <p class="config-hero__preview-subtitle">Инструкции для граббера контента Mygrab</p>
+          <img
+            src="assets/images/mygrab-instruction-mini-2.webp"
+            alt=""
+            width="420"
+            height="280"
+            loading="lazy"
+            decoding="async"
+          />
+        </div>
+      </div>
+    </section>
+
+    <section class="config-code" aria-labelledby="config-code-title">
+      <div class="container">
+        <div class="config-code__card">
+          <h2 id="config-code-title">Пример JSON-конфига</h2>
+          <p class="config-code__text">
+            Используйте шаблон как основу и заполните обязательные поля перед запуском Telegram Grabber PREMIUM 4.0.
+          </p>
+          <figure class="config-code__media">
+            <button
+              type="button"
+              class="config-code__trigger"
+              data-image-lightbox-trigger
+              data-image-lightbox-src="assets/images/mygrab-instruction-mini.webp"
+              aria-label="Открыть пример JSON-конфига в полном размере"
+            >
+              <img
+                src="assets/images/mygrab-instruction-mini.webp"
+                width="1040"
+                height="620"
+                loading="lazy"
+                decoding="async"
+                alt="Пример заполненного конфига MyGrab Premium 4.0"
+              />
+            </button>
+          </figure>
+        </div>
+      </div>
+    </section>
+
+    <section class="config-required" id="required" aria-labelledby="config-required-title">
+      <div class="container">
+        <div class="config-required__header">
+          <h2 id="config-required-title">Обязательная часть</h2>
+          <p>Эти значения нужны для авторизации и работы граббера. Без них система не запустится.</p>
+        </div>
+        <div class="config-required__grid">
+          <article class="config-card">
+            <p class="config-card__number">1</p>
+            <h3>api_id и api_hash</h3>
+            <p>
+              Получаем на <a href="https://my.telegram.org/auth" target="_blank" rel="noopener">my.telegram.org</a> в разделе API
+              development. Сохраняем пару значений в конфиг.
+            </p>
+            <a class="config-card__video" href="https://dzen.ru/video/watch/66dec6219ffef61eb34ce381" target="_blank" rel="noopener"
+              >Инструкция для MyGrab</a
+            >
+          </article>
+
+          <article class="config-card">
+            <p class="config-card__number">2</p>
+            <h3>bot_token</h3>
+            <p>
+              Токен бота Telegram из <span lang="en">@BotFather</span>. Без него не подключится админский бот и не будут работать команды.
+            </p>
+            <a class="config-card__video" href="https://dzen.ru/video/watch/66dec67c7d5c582fc2f54e21" target="_blank" rel="noopener"
+              >Как получить токен</a
+            >
+          </article>
+
+          <article class="config-card">
+            <p class="config-card__number">3</p>
+            <h3>my_id и technical_channel_id</h3>
+            <p>
+              Сохраняем свой ID администратора и ID технического канала. Они нужны для логов, уведомлений и автопостинга.
+            </p>
+            <a class="config-card__video" href="https://dzen.ru/video/watch/66dec6c64f1f657415006b04" target="_blank" rel="noopener"
+              >Инструкция по ID</a
+            >
+          </article>
+        </div>
+      </div>
+    </section>
+
+    <section class="config-optional" id="optional" aria-labelledby="config-optional-title">
+      <div class="container">
+        <div class="config-optional__header">
+          <h2 id="config-optional-title">Необязательная часть</h2>
+          <p>Расширенные настройки помогут адаптировать граббер под вашу инфраструктуру и подключаемые нейросети.</p>
+        </div>
+        <ol class="config-optional__list">
+          <li>
+            <h3>1. timezone_offset</h3>
+            <p>Смещение часового пояса в минутах. Используется для корректного расписания постинга.</p>
+          </li>
+          <li>
+            <h3>2. openai_api_key_gpt</h3>
+            <p>Ключ OpenAI, если подключаете внешний GPT из своего тарифа.</p>
+          </li>
+          <li>
+            <h3>3. openai_model_gpt</h3>
+            <p>Название модели GPT. По умолчанию используется «gpt-4.1-mini», но можно указать другой вариант.</p>
+          </li>
+          <li>
+            <h3>4. external_model_gpt</h3>
+            <p>Для интеграции со сторонними GPT API, например One V8 или One V10.</p>
+          </li>
+          <li>
+            <h3>5. openai_api_key_dalle</h3>
+            <p>Нужен, если планируете генерировать изображения через DALL·E.</p>
+          </li>
+          <li>
+            <h3>6. openai_model_dalle</h3>
+            <p>Выбор модели генерации картинок в OpenAI (например, «dall-e-3»).</p>
+          </li>
+          <li>
+            <h3>7. mistral_api_key</h3>
+            <p>API-ключ Mistral для генерации текстов через их облачные модели.</p>
+          </li>
+          <li>
+            <h3>8. external_model_mistral / chat_mistral_model</h3>
+            <p>Параметры для внешних моделей Mistral. Можно указать «One 8», «One 8 mini» и подходящий чат-режим.</p>
+          </li>
+          <li>
+            <h3>9. flux_api_key</h3>
+            <p>Ключ Flux, если используете генерацию изображений через этот сервис.</p>
+          </li>
+          <li>
+            <h3>10. giga_api_key</h3>
+            <p>API-ключ GigaChat для генерации картинок или текстов от Сбера.</p>
+          </li>
+          <li>
+            <h3>11. mistral_model</h3>
+            <p>Название модели Mistral по умолчанию. Можно поменять на нужную для генерации.</p>
+          </li>
+          <li>
+            <h3>12. Другое</h3>
+            <p>Системные параметры для шапки и RSS-триггеров.</p>
+            <pre><code>"FAVIC_HEADER_LIGHT": 220,
+"FAVIC_HEADER_DARK": 133,
+"TRIGGERS": {
+  "rss": []
+}</code></pre>
+            <p>Подробнее о функционале смотрите на <a href="https://mygrab.ru" target="_blank" rel="noopener">mygrab.ru</a>.</p>
+          </li>
+        </ol>
+      </div>
+    </section>
+
+    <section class="config-contact" id="contact" aria-labelledby="config-contact-title">
+      <div class="container config-contact__inner">
+        <div class="config-contact__intro">
+          <p class="config-hero__eyebrow">Поддержка</p>
+          <h2 id="config-contact-title">Команда MyGrab всегда на связи</h2>
+          <p>Поможем с лицензией, конфигурацией и подключением дополнительных сервисов.</p>
+        </div>
+        <div class="config-contact__actions">
+          <a class="btn btn--primary" href="https://t.me/k_slavv" target="_blank" rel="noopener">Написать по доступу</a>
+          <a class="btn" href="https://t.me/k_slavv" target="_blank" rel="noopener">Чат поддержки @k_slavv</a>
+        </div>
+      </div>
+    </section>
+  </main>
+
+  <footer class="site-footer" aria-label="Подвал сайта">
+    <div class="container site-footer__inner">
+      <nav class="footer-nav" aria-label="Навигация по странице">
+        <a class="footer-nav__link" href="#required">Обязательные параметры</a>
+        <a class="footer-nav__link" href="#optional">Необязательные параметры</a>
+        <a class="footer-nav__link" href="#contact">Поддержка</a>
+      </nav>
+      <p>© <span id="year"></span> MyGrab — Все права защищены.</p>
+    </div>
+  </footer>
+
+  <div class="image-lightbox" data-image-lightbox aria-hidden="true" hidden>
+    <div class="image-lightbox__overlay" data-image-lightbox-overlay></div>
+    <figure class="image-lightbox__content" role="dialog" aria-modal="true" aria-label="Просмотр изображения">
+      <button type="button" class="image-lightbox__close" data-image-lightbox-close aria-label="Закрыть изображение">
+        <span aria-hidden="true">&times;</span>
+      </button>
+      <img src="" alt="" loading="lazy" decoding="async" data-image-lightbox-img />
+    </figure>
+  </div>
+
+  <script src="script.js" defer></script>
+</body>
+</html>
