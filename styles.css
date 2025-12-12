@@ -1,10 +1,4 @@
-/* =============================================
-   MyGrab Modern Website - Complete Redesign 2025
-   ============================================= */
-
-/* CSS Custom Properties (Variables) */
 :root {
-  /* Colors - Modern & Professional Palette */
   --color-primary: #6366F1;
   --color-primary-light: #818CF8;
   --color-primary-dark: #4F46E5;
@@ -27,7 +21,6 @@
   --color-warning: #F59E0B;
   --color-error: #EF4444;
   
-  /* Typography */
   --font-sans: 'Outfit', -apple-system, BlinkMacSystemFont, 'Segoe UI', system-ui, sans-serif;
   --font-mono: 'Space Mono', 'SF Mono', 'Consolas', monospace;
   
@@ -177,26 +170,6 @@ strong {
   margin: 0 auto;
   padding-left: var(--container-padding);
   padding-right: var(--container-padding);
-}
-
-.skip-link {
-  position: absolute;
-  top: -40px;
-  left: 10px;
-  padding: var(--space-3) var(--space-4);
-  background: var(--color-primary);
-  color: white;
-  border-radius: var(--radius-md);
-  font-weight: 600;
-  font-size: var(--font-size-sm);
-  z-index: 9999;
-  transition: top var(--transition-fast);
-}
-
-.skip-link:focus {
-  top: 10px;
-  outline: 3px solid var(--color-primary-light);
-  outline-offset: 2px;
 }
 
 /* =============================================
@@ -1191,96 +1164,6 @@ strong {
 }
 
 /* =============================================
-   Animations
-   ============================================= */
-@keyframes fade-up {
-  from {
-    opacity: 0;
-    transform: translateY(30px);
-  }
-  to {
-    opacity: 1;
-    transform: translateY(0);
-  }
-}
-
-@keyframes fade-left {
-  from {
-    opacity: 0;
-    transform: translateX(30px);
-  }
-  to {
-    opacity: 1;
-    transform: translateX(0);
-  }
-}
-
-@keyframes zoom-in {
-  from {
-    opacity: 0;
-    transform: scale(0.9);
-  }
-  to {
-    opacity: 1;
-    transform: scale(1);
-  }
-}
-
-[data-animate] {
-  opacity: 0;
-}
-
-[data-animate].animated {
-  animation-duration: 0.6s;
-  animation-fill-mode: both;
-  animation-timing-function: cubic-bezier(0.4, 0, 0.2, 1);
-}
-
-[data-animate="fade-up"].animated {
-  animation-name: fade-up;
-}
-
-[data-animate="fade-left"].animated {
-  animation-name: fade-left;
-}
-
-[data-animate="zoom-in"].animated {
-  animation-name: zoom-in;
-}
-
-[data-delay="50"].animated {
-  animation-delay: 50ms;
-}
-
-[data-delay="100"].animated {
-  animation-delay: 100ms;
-}
-
-[data-delay="150"].animated {
-  animation-delay: 150ms;
-}
-
-[data-delay="200"].animated {
-  animation-delay: 200ms;
-}
-
-[data-delay="250"].animated {
-  animation-delay: 250ms;
-}
-
-[data-delay="300"].animated {
-  animation-delay: 300ms;
-}
-
-[data-delay="400"].animated {
-  animation-delay: 400ms;
-}
-
-[data-delay="500"].animated {
-  animation-delay: 500ms;
-}
-
-/* =============================================
    Responsive Design
    ============================================= */
 @media (max-width: 1024px) {
@@ -1307,34 +1190,72 @@ strong {
 }
 
 @media (max-width: 768px) {
-  .nav-menu {
-    position: fixed;
-    top: 0;
-    right: -100%;
-    width: 80%;
-    max-width: 300px;
-    height: 100vh;
-    flex-direction: column;
-    align-items: flex-start;
-    gap: var(--space-6);
-    padding: var(--space-20) var(--space-6);
-    margin: 0;
-    background: white;
-    box-shadow: var(--shadow-2xl);
-    transition: right var(--transition-base);
-    z-index: 1000;
+  /* Скрываем визуальные блоки на мобильных */
+  .hero__visual,
+  .how-it-works__visual {
+    display: none !important;
   }
   
-  .nav-menu.is-open {
-    right: 0;
-  }
-  
-  .nav-toggle {
-    display: flex;
-  }
-  
+  /* Скрываем навигацию полностью на мобильных */
+  .nav-menu,
+  .nav-toggle,
   .header__cta {
-    display: none;
+    display: none !important;
+  }
+  
+  /* Уменьшаем отступы в stats на мобильных */
+  .stats {
+    padding: var(--space-8) 0;
+  }
+  
+  .stats__grid {
+    gap: var(--space-4);
+  }
+  
+  .stat-card {
+    padding: var(--space-3);
+  }
+  
+  .stat-card__value {
+    font-size: var(--font-size-4xl);
+    margin-bottom: var(--space-1);
+  }
+  
+  .stat-card__label {
+    font-size: var(--font-size-sm);
+  }
+  
+  /* Исправление badge в pricing */
+  .pricing-card {
+    padding-top: var(--space-16);
+  }
+  
+  .pricing-card__badge {
+    font-size: var(--font-size-xs);
+    padding: var(--space-1) var(--space-4);
+  }
+  
+  /* Улучшение CTA на мобильных */
+  .cta {
+    padding: var(--space-16) 0;
+  }
+  
+  .cta__content {
+    padding: var(--space-8);
+  }
+  
+  .cta__title {
+    font-size: var(--font-size-3xl);
+    margin-bottom: var(--space-4);
+  }
+  
+  .cta__description {
+    font-size: var(--font-size-base);
+    margin-bottom: var(--space-6);
+  }
+  
+  .hero__content {
+    grid-template-columns: 1fr;
   }
   
   .features__grid {
@@ -1377,6 +1298,12 @@ strong {
   
   .social-proof__avatars {
     flex-wrap: wrap;
+  }
+  
+  .pricing-card__badge {
+    font-size: 0.7rem;
+    padding: var(--space-1) var(--space-3);
+    white-space: nowrap;
   }
 }
 
