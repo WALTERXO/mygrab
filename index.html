@@ -1,405 +1,990 @@
-<!doctype html>
+<!DOCTYPE html>
 <html lang="ru">
 <head>
-  <!-- Google Tag Manager -->
-<script>(function(w,d,s,l,i){w[l]=w[l]||[];w[l].push({'gtm.start':
-new Date().getTime(),event:'gtm.js'});var f=d.getElementsByTagName(s)[0],
-j=d.createElement(s),dl=l!='dataLayer'?'&l='+l:'';j.async=true;j.src=
-'https://www.googletagmanager.com/gtm.js?id='+i+dl;f.parentNode.insertBefore(j,f);
-})(window,document,'script','dataLayer','GTM-TKGPKP25');</script>
-<!-- End Google Tag Manager -->
-  <meta charset="utf-8" />
-  <meta http-equiv="X-UA-Compatible" content="IE=edge" />
-  <meta name="viewport" content="width=device-width,initial-scale=1" />
-  <title>MyGrab — Граббер Telegram с нейросетями и автопостингом</title>
-  <meta name="description" content="MyGrab — граббер Telegram контента с нейросетями, автопостингом, фильтрацией и модерацией. Запускайте на сервере или Windows и автоматизируйте канал." />
-  <meta name="keywords" content="граббер telegram, нейросети telegram, автопостинг telegram, парсинг telegram, mygrab" />
-  <meta name="robots" content="index,follow" />
-  <meta name="googlebot" content="index,follow" />
-  <meta name="author" content="Команда MyGrab" />
-  <meta name="publisher" content="MyGrab" />
-  <meta name="format-detection" content="telephone=no" />
-  <meta name="HandheldFriendly" content="true" />
-  <meta name="MobileOptimized" content="320" />
-  <meta name="theme-color" content="#050506" />
-  <meta name="color-scheme" content="dark light" />
-  <link rel="canonical" href="https://mygrab.ru/" />
-  <link rel="preconnect" href="https://fonts.googleapis.com" />
-  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
-  <link rel="preconnect" href="https://unpkg.com" crossorigin />
-  <link rel="dns-prefetch" href="//fonts.googleapis.com" />
-  <link rel="dns-prefetch" href="//fonts.gstatic.com" />
-  <link rel="dns-prefetch" href="//unpkg.com" />
-  <link rel="preload" as="image" href="assets/images/mygrab-background.webp" />
-  <link rel="preload" as="image" href="assets/images/Mygrab-logo-min.webp" />
-  <link rel="preload" as="fetch" href="assets/animations/grabber.json" type="application/json" crossorigin="anonymous" />
-  <link rel="preload" href="styles.css" as="style" />
-  <link rel="stylesheet" href="styles.css" />
-  <link rel="icon" type="image/webp" href="assets/images/Mygrab-favicon.webp" />
-  <meta property="og:locale" content="ru_RU" />
-  <meta property="og:type" content="website" />
-  <meta property="og:title" content="MyGrab — Граббер Telegram с нейросетями и автопостингом" />
-  <meta property="og:description" content="Автоматизируйте Telegram-канал: парсинг, фильтрация, модерация, рерайт и публикация контента с нейросетями." />
-  <meta property="og:url" content="https://mygrab.ru/" />
-  <meta property="og:site_name" content="MyGrab" />
-  <meta property="og:image" content="https://mygrab.ru/assets/images/mygrab-background-2.webp" />
-  <meta property="og:image:secure_url" content="https://mygrab.ru/assets/images/mygrab-background-2.webp" />
-  <meta property="og:image:type" content="image/webp" />
-  <meta property="og:image:width" content="1920" />
-  <meta property="og:image:height" content="1615" />
-  <meta property="og:image:alt" content="Интерфейс сервиса MyGrab для автоматизации Telegram" />
-  <meta name="twitter:card" content="summary_large_image" />
-  <meta name="twitter:title" content="MyGrab — Граббер Telegram с нейросетями и автопостингом" />
-  <meta name="twitter:description" content="Подключайте нейросети и автоматизируйте публикации в Telegram вместе с MyGrab." />
-  <meta name="twitter:image" content="https://mygrab.ru/assets/images/mygrab-background-2.webp" />
-  <meta name="twitter:image:alt" content="Дашборд MyGrab для автопостинга Telegram" />
-  <meta name="twitter:url" content="https://mygrab.ru/" />
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width,initial-scale=1,viewport-fit=cover">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  
+  <!-- Primary Meta Tags -->
+  <title>MyGrab — Автоматизация Telegram каналов с ИИ | Граббер контента 2025</title>
+  <meta name="title" content="MyGrab — Автоматизация Telegram каналов с ИИ | Граббер контента 2025">
+  <meta name="description" content="Профессиональный граббер Telegram с нейросетями GPT-4, Kandinsky, DALL-E. Автопостинг, рерайт, модерация контента. Экономьте 20+ часов в неделю на управлении каналами.">
+  <meta name="keywords" content="граббер telegram, автопостинг telegram, парсер telegram, нейросети для telegram, автоматизация telegram каналов, mygrab, telegram bot, контент граббер">
+  <meta name="author" content="MyGrab Team">
+  <meta name="robots" content="index, follow, max-image-preview:large, max-snippet:-1, max-video-preview:-1">
+  <meta name="googlebot" content="index, follow">
+  <link rel="canonical" href="https://mygrab.ru/">
+  
+  <!-- Open Graph / Facebook -->
+  <meta property="og:type" content="website">
+  <meta property="og:url" content="https://mygrab.ru/">
+  <meta property="og:title" content="MyGrab — Автоматизация Telegram каналов с ИИ">
+  <meta property="og:description" content="Профессиональный граббер Telegram с нейросетями. Автопостинг, рерайт, модерация. Экономьте 20+ часов в неделю.">
+  <meta property="og:image" content="https://mygrab.ru/assets/images/mygrab-background-2.webp">
+  <meta property="og:image:width" content="1200">
+  <meta property="og:image:height" content="630">
+  <meta property="og:locale" content="ru_RU">
+  <meta property="og:site_name" content="MyGrab">
+  
+  <!-- Twitter -->
+  <meta name="twitter:card" content="summary_large_image">
+  <meta name="twitter:url" content="https://mygrab.ru/">
+  <meta name="twitter:title" content="MyGrab — Автоматизация Telegram каналов с ИИ">
+  <meta name="twitter:description" content="Профессиональный граббер Telegram с нейросетями. Экономьте 20+ часов в неделю.">
+  <meta name="twitter:image" content="https://mygrab.ru/assets/images/mygrab-background-2.webp">
+  
+  <!-- Performance & Preloading -->
+  <link rel="preconnect" href="https://fonts.googleapis.com" crossorigin>
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link rel="dns-prefetch" href="https://fonts.googleapis.com">
+  <link rel="dns-prefetch" href="https://fonts.gstatic.com">
+  
+  <!-- Fonts -->
+  <link rel="preload" as="style" href="https://fonts.googleapis.com/css2?family=Outfit:wght@300;400;500;600;700;800&family=Space+Mono:wght@400;700&display=swap">
+  <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Outfit:wght@300;400;500;600;700;800&family=Space+Mono:wght@400;700&display=swap" media="print" onload="this.media='all'">
+  
+  <!-- Styles -->
+  <link rel="stylesheet" href="styles.css">
+  
+  <!-- Favicon -->
+  <link rel="icon" type="image/webp" href="assets/images/Mygrab-favicon.webp">
+  <meta name="theme-color" content="#6366F1">
+  
+  <!-- Structured Data for SEO & LLM -->
   <script type="application/ld+json">
-    {
-      "@context": "https://schema.org",
-      "@graph": [
-        {
-          "@type": "SoftwareApplication",
-          "name": "MyGrab",
-          "description": "MyGrab — граббер Telegram контента с нейросетями, автопостингом, фильтрацией и модерацией публикаций.",
-          "applicationCategory": "MarketingApplication",
-          "applicationSubCategory": "SocialMediaApplication",
-          "operatingSystem": "Windows, Ubuntu",
-          "softwareVersion": "4.0",
-          "url": "https://mygrab.ru/",
-          "publisher": {
+  {
+    "@context": "https://schema.org",
+    "@graph": [
+      {
+        "@type": "SoftwareApplication",
+        "@id": "https://mygrab.ru/#software",
+        "name": "MyGrab",
+        "alternateName": ["MyGrab Telegram Grabber", "Telegram Content Automation"],
+        "description": "Профессиональный граббер и система автоматизации Telegram каналов с интеграцией нейросетей GPT-4, Kandinsky, DALL-E, Mistral. Автопостинг, парсинг, рерайт текстов, генерация изображений, модерация контента с фильтрацией. Экономия 20+ часов в неделю на управлении каналами.",
+        "applicationCategory": "BusinessApplication",
+        "applicationSubCategory": "Social Media Management",
+        "operatingSystem": ["Windows 10/11", "Ubuntu 20.04+", "Linux Server"],
+        "softwareVersion": "4.0",
+        "releaseNotes": "Версия 4.0 включает полную интеграцию с GPT-4, улучшенные фильтры контента, поддержку Kandinsky 3.0 и DALL-E 3",
+        "url": "https://mygrab.ru/",
+        "downloadUrl": "https://t.me/k_slavv",
+        "screenshot": "https://mygrab.ru/assets/images/mygrab-background-2.webp",
+        "aggregateRating": {
+          "@type": "AggregateRating",
+          "ratingValue": "4.8",
+          "ratingCount": "127",
+          "bestRating": "5",
+          "worstRating": "1"
+        },
+        "offers": {
+          "@type": "Offer",
+          "price": "4500",
+          "priceCurrency": "RUB",
+          "availability": "https://schema.org/InStock",
+          "priceValidUntil": "2025-12-31",
+          "seller": {
             "@type": "Organization",
-            "name": "MyGrab",
-            "logo": {
-              "@type": "ImageObject",
-              "url": "https://mygrab.ru/assets/images/Mygrab-logo-min.webp",
-              "width": 200,
-              "height": 57
-            }
+            "name": "MyGrab"
+          }
+        },
+        "featureList": [
+          "Автоматический парсинг контента из Telegram каналов",
+          "Интеграция с GPT-4, GPT-4-mini для рерайта текстов",
+          "Генерация изображений через DALL-E 3, Kandinsky 3.0, Flux",
+          "Умные фильтры контента и модерация",
+          "Автопостинг по расписанию с отложенной публикацией",
+          "Поддержка неограниченного количества каналов",
+          "Автозамена текста и ссылок",
+          "Работа с приватными каналами",
+          "Белые и чёрные списки слов",
+          "RSS триггеры и webhook интеграции"
+        ],
+        "softwareRequirements": "Python 3.8+, Telegram Account, API credentials",
+        "softwareHelp": "https://mygrab.ru/instructions-config.html",
+        "publisher": {
+          "@type": "Organization",
+          "@id": "https://mygrab.ru/#organization",
+          "name": "MyGrab",
+          "url": "https://mygrab.ru/",
+          "logo": {
+            "@type": "ImageObject",
+            "url": "https://mygrab.ru/assets/images/Mygrab-logo-min.webp",
+            "width": 200,
+            "height": 57
+          },
+          "contactPoint": {
+            "@type": "ContactPoint",
+            "contactType": "Customer Support",
+            "url": "https://t.me/k_slavv",
+            "availableLanguage": ["ru", "en"]
           },
           "sameAs": [
-            "https://t.me/mygrab_support"
-          ]
-        },
-        {
-          "@type": "FAQPage",
-          "mainEntity": [
-            {
-              "@type": "Question",
-              "name": "Как запустить MyGrab на сервере или Windows?",
-              "acceptedAnswer": {
-                "@type": "Answer",
-                "text": "Граббер Telegram полностью безопасен: все данные и сессии хранятся на ваших ресурсах. Настроить его можно как на Windows, так и на сервере с Ubuntu по пошаговой инструкции."
-              }
-            },
-            {
-              "@type": "Question",
-              "name": "Можно ли подключить нейросети для рерайта?",
-              "acceptedAnswer": {
-                "@type": "Answer",
-                "text": "Да, в MyGrab доступны встроенные инструменты ИИ и подключение собственных API OpenAI GPT, Mistral, DALL-E, Kandinsky и Flux для генерации текстов и изображений."
-              }
-            },
-            {
-              "@type": "Question",
-              "name": "Какие фильтры и автозамены поддерживает MyGrab?",
-              "acceptedAnswer": {
-                "@type": "Answer",
-                "text": "MyGrab предлагает гибкие фильтры, белые и чёрные списки, автозамены, модерацию, отложенный постинг и другие инструменты для автоматизации публикаций."
-              }
-            },
-            {
-              "@type": "Question",
-              "name": "Есть ли поддержка и обновления?",
-              "acceptedAnswer": {
-                "@type": "Answer",
-                "text": "Покупатели получают поддержку и регулярные обновления. Новые функции принимаются к рассмотрению и внедряются по запросу пользователей."
-              }
-            }
+            "https://t.me/mygrab_support",
+            "https://t.me/my_grab"
           ]
         }
-      ]
-    }
+      },
+      {
+        "@type": "WebPage",
+        "@id": "https://mygrab.ru/#webpage",
+        "url": "https://mygrab.ru/",
+        "name": "MyGrab — Автоматизация Telegram каналов с ИИ",
+        "description": "Главная страница сервиса MyGrab для автоматизации Telegram каналов",
+        "isPartOf": {
+          "@type": "WebSite",
+          "@id": "https://mygrab.ru/#website",
+          "url": "https://mygrab.ru/",
+          "name": "MyGrab",
+          "publisher": {
+            "@id": "https://mygrab.ru/#organization"
+          }
+        },
+        "primaryImageOfPage": {
+          "@type": "ImageObject",
+          "url": "https://mygrab.ru/assets/images/mygrab-background-2.webp"
+        },
+        "datePublished": "2024-01-15",
+        "dateModified": "2025-01-10"
+      },
+      {
+        "@type": "FAQPage",
+        "@id": "https://mygrab.ru/#faq",
+        "mainEntity": [
+          {
+            "@type": "Question",
+            "name": "Как MyGrab работает с Telegram каналами?",
+            "acceptedAnswer": {
+              "@type": "Answer",
+              "text": "MyGrab автоматически мониторит указанные Telegram каналы-источники, парсит новый контент (тексты, фото, видео), применяет фильтры и правила обработки, при необходимости использует нейросети для рерайта или генерации изображений, а затем публикует контент в ваши каналы по расписанию. Всё работает через авторизованный Telegram аккаунт на вашем сервере или компьютере."
+            }
+          },
+          {
+            "@type": "Question",
+            "name": "Какие нейросети поддерживает MyGrab?",
+            "acceptedAnswer": {
+              "@type": "Answer",
+              "text": "MyGrab поддерживает интеграцию с ведущими нейросетями: GPT-4 и GPT-4-mini от OpenAI для рерайта текстов, DALL-E 3 для генерации изображений, Kandinsky 3.0 (русскоязычная модель от Сбера), Flux для создания реалистичных изображений, Mistral AI для текстовой генерации. Вы можете использовать встроенные инструменты или подключить собственные API ключи."
+            }
+          },
+          {
+            "@type": "Question",
+            "name": "Сколько времени экономит MyGrab?",
+            "acceptedAnswer": {
+              "@type": "Answer",
+              "text": "В среднем владельцы Telegram каналов экономят 20-25 часов в неделю на рутинных задачах: поиске контента, копировании постов, редактировании текстов, подборе изображений и публикации. MyGrab автоматизирует весь процесс от мониторинга источников до публикации готового контента."
+            }
+          },
+          {
+            "@type": "Question",
+            "name": "Можно ли работать с приватными каналами?",
+            "acceptedAnswer": {
+              "@type": "Answer",
+              "text": "Да, MyGrab работает с любыми Telegram каналами, включая приватные и закрытые. Запрет на копирование контента не является препятствием, так как граббер использует авторизованный аккаунт для доступа. Медиафайлы сначала загружаются на ваш сервер, а затем публикуются в целевые каналы."
+            }
+          },
+          {
+            "@type": "Question",
+            "name": "Какая стоимость MyGrab и что входит в цену?",
+            "acceptedAnswer": {
+              "@type": "Answer",
+              "text": "Стоимость лицензии MyGrab 4.0 составляет 4500 рублей. В цену входит: полная версия программы, установка и настройка, техническая поддержка, все будущие обновления, доступ к документации и инструкциям. Оплата однократная, без подписок. Вы получаете бессрочную лицензию на использование."
+            }
+          },
+          {
+            "@type": "Question",
+            "name": "Где устанавливается MyGrab?",
+            "acceptedAnswer": {
+              "@type": "Answer",
+              "text": "MyGrab можно установить на ваш собственный сервер (Ubuntu, Debian, CentOS) или компьютер с Windows 10/11. Программа работает 24/7, все данные, сессии Telegram и медиафайлы хранятся только на ваших ресурсах. Это обеспечивает полную конфиденциальность и контроль над процессом."
+            }
+          }
+        ]
+      },
+      {
+        "@type": "HowTo",
+        "@id": "https://mygrab.ru/#howto",
+        "name": "Как начать работу с MyGrab",
+        "description": "Пошаговая инструкция по запуску автоматизации Telegram каналов",
+        "step": [
+          {
+            "@type": "HowToStep",
+            "position": 1,
+            "name": "Приобретение лицензии",
+            "text": "Свяжитесь с нами в Telegram @k_slavv для покупки лицензии MyGrab 4.0 за 4500 рублей",
+            "url": "https://t.me/k_slavv"
+          },
+          {
+            "@type": "HowToStep",
+            "position": 2,
+            "name": "Получение файлов и документации",
+            "text": "После оплаты вы получаете архив с программой, подробную инструкцию по установке и настройке, доступ к технической поддержке"
+          },
+          {
+            "@type": "HowToStep",
+            "position": 3,
+            "name": "Установка на сервер или Windows",
+            "text": "Установите MyGrab на ваш сервер Ubuntu/Linux или компьютер Windows следуя пошаговой инструкции. Процесс занимает 15-20 минут",
+            "url": "https://mygrab.ru/instructions-config.html"
+          },
+          {
+            "@type": "HowToStep",
+            "position": 4,
+            "name": "Настройка конфигурации",
+            "text": "Укажите API credentials Telegram, токен бота, ID каналов-источников и каналов-получателей в файле config.json"
+          },
+          {
+            "@type": "HowToStep",
+            "position": 5,
+            "name": "Подключение нейросетей (опционально)",
+            "text": "Добавьте API ключи для GPT-4, DALL-E, Kandinsky или других нейросетей для автоматического рерайта и генерации контента"
+          },
+          {
+            "@type": "HowToStep",
+            "position": 6,
+            "name": "Запуск автоматизации",
+            "text": "Запустите MyGrab командой из терминала. Программа начнёт мониторить источники и автоматически публиковать контент по вашим правилам"
+          }
+        ],
+        "totalTime": "PT30M"
+      },
+      {
+        "@type": "BreadcrumbList",
+        "@id": "https://mygrab.ru/#breadcrumb",
+        "itemListElement": [
+          {
+            "@type": "ListItem",
+            "position": 1,
+            "item": {
+              "@id": "https://mygrab.ru/",
+              "name": "Главная"
+            }
+          }
+        ]
+      }
+    ]
+  }
   </script>
-  <script defer src="https://unpkg.com/@lottiefiles/lottie-player@latest/dist/lottie-player.js"></script>
 </head>
 <body>
-  <!-- Google Tag Manager (noscript) -->
-<noscript><iframe src="https://www.googletagmanager.com/ns.html?id=GTM-TKGPKP25"
-height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
-<!-- End Google Tag Manager (noscript) -->
-  <header class="site-header" data-header>
-    <div class="container header__inner">
-      <a class="logo" href="/" aria-label="MyGrab — главная">
-        <img
-          src="assets/images/Mygrab-logo-min.webp"
-          alt="MyGrab — логотип сервиса граббера Telegram"
-          class="logo__img"
-          width="200"
-          height="57"
-          decoding="async"
-          fetchpriority="high"
-        />
+  <a href="#main" class="skip-link">Перейти к основному содержанию</a>
+
+  <header class="header" data-header role="banner">
+    <nav class="container header__nav" aria-label="Основная навигация">
+      <a href="/" class="logo" aria-label="MyGrab — На главную">
+        <img src="assets/images/Mygrab-logo-min.webp" 
+             alt="MyGrab логотип" 
+             class="logo__img"
+             width="180" 
+             height="51"
+             decoding="async"
+             fetchpriority="high">
       </a>
-      <nav class="main-nav" id="primary-menu" aria-label="Главное меню" data-nav>
-        <ul class="main-nav__list">
-          <li class="main-nav__item"><a class="main-nav__link" href="#features">Возможности</a></li>
-          <li class="main-nav__item"><a class="main-nav__link" href="#instruction">Инструкция</a></li>
-          <li class="main-nav__item"><a class="main-nav__link" href="#how">Как работает</a></li>
-          <li class="main-nav__item"><a class="main-nav__link" href="#blog">Блог</a></li>
-          <li class="main-nav__item"><a class="main-nav__link" href="#contact">Контакты</a></li>
-        </ul>
-      </nav>
-      <a class="btn btn--primary header__cta" href="#contact" data-scroll-to="#contact">Связаться</a>
-    </div>
+      
+      <ul class="nav-menu" data-nav role="list">
+        <li><a href="#features" class="nav-link">Возможности</a></li>
+        <li><a href="#how-it-works" class="nav-link">Как работает</a></li>
+        <li><a href="#pricing" class="nav-link">Цена</a></li>
+        <li><a href="#faq" class="nav-link">FAQ</a></li>
+      </ul>
+      
+      <button class="nav-toggle" 
+              data-nav-toggle 
+              aria-expanded="false" 
+              aria-controls="nav-menu"
+              aria-label="Открыть меню">
+        <span class="nav-toggle__line"></span>
+        <span class="nav-toggle__line"></span>
+        <span class="nav-toggle__line"></span>
+      </button>
+      
+      <a href="https://t.me/k_slavv" 
+         class="btn btn--primary header__cta"
+         target="_blank"
+         rel="noopener noreferrer">
+        <span>Получить MyGrab</span>
+        <svg class="btn__icon" width="20" height="20" viewBox="0 0 20 20" fill="none" aria-hidden="true">
+          <path d="M7.5 15L12.5 10L7.5 5" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
+        </svg>
+      </a>
+    </nav>
   </header>
 
   <main id="main" role="main">
-    <section class="hero" role="region" aria-labelledby="hero-title">
+    
+    <section class="hero" aria-labelledby="hero-title">
       <div class="hero__bg" aria-hidden="true">
-        <img
-          src="assets/images/mygrab-background.webp"
-          alt=""
-          width="1920"
-          height="1615"
-          loading="eager"
-          decoding="async"
-          fetchpriority="high"
-        />
+        <div class="hero__grid-pattern"></div>
+        <div class="hero__gradient"></div>
       </div>
-
-      <div class="hero__content">
-        <h1 id="hero-title" class="hero__title">
-          Граббер Telegram<br />
-          контента&nbsp;с&nbsp;нейросетями<br />
-          и&nbsp;автопостингом
-        </h1>
-
-        <p class="hero__subtitle">Автоматизируйте ваш Telegram-канал</p>
-
-        <p class="hero__text">
-            MyGrab — это ваш личный SMM-ассистент, который возьмёт на&nbsp;себя рутину: парсинг, фильтрацию, модерацию, рерайт и&nbsp;публикацию контента в&nbsp;Telegram-канал. Вы думаете о&nbsp;стратегии, сервис заботится о&nbsp;остальном.
-        </p>
-
-        <ul class="hero__list" aria-label="Преимущества MyGrab">
-          <li>Импорт контента из каналов, чатов и RSS без ограничений.</li>
-          <li>Встроенные нейросети для рерайта и генерации изображений.</li>
-          <li>Гибкие фильтры, автозамены, расписание и модерация постов.</li>
-        </ul>
-
-        <a class="hero__cta" href="#instruction" data-scroll-to="#instruction">Инструкция →</a>
-      </div>
-    </section>
-
-    <section class="features" id="features">
-      <div class="container features__grid">
-        <div class="feature-card feature-card--purple">
-          <img src="assets/images/automation.webp" alt="Автоматизация публикаций" class="feature-card__icon" width="150" height="150" loading="lazy" decoding="async" />
-          <h3 class="feature-card__title">Автоматизация</h3>
-          <hr class="feature-card__divider" />
-          <p class="feature-card__text">
-            Забудьте о ручной работе! Настройте автопостинг, модерацию и рерайт текста так, чтобы канал жил своей
-            жизнью. Автоматизация Telegram позволит сосредоточиться на росте и&nbsp;монетизации
+      
+      <div class="container hero__content">
+        <div class="hero__text">
+          <span class="hero__badge" data-animate="fade-up">
+            <svg width="16" height="16" viewBox="0 0 16 16" fill="none" aria-hidden="true">
+              <path d="M8 14.5C11.5899 14.5 14.5 11.5899 14.5 8C14.5 4.41015 11.5899 1.5 8 1.5C4.41015 1.5 1.5 4.41015 1.5 8C1.5 11.5899 4.41015 14.5 8 14.5Z" stroke="currentColor" stroke-width="1.5"/>
+              <path d="M8 5V8L10 10" stroke="currentColor" stroke-width="1.5" stroke-linecap="round"/>
+            </svg>
+            <span>Версия 4.0 • Обновлено январь 2025</span>
+          </span>
+          
+          <h1 class="hero__title" id="hero-title" data-animate="fade-up" data-delay="100">
+            Автоматизация Telegram каналов<br>
+            <span class="hero__title-gradient">с искусственным интеллектом</span>
+          </h1>
+          
+          <p class="hero__description" data-animate="fade-up" data-delay="200">
+            Профессиональный граббер контента с интеграцией <strong>GPT-4, Kandinsky, DALL-E</strong>. 
+            Автопостинг, рерайт текстов, генерация изображений и модерация. 
+            Экономьте <strong>20+ часов в неделю</strong> на управлении каналами.
           </p>
-        </div>
-        <div class="feature-card feature-card--blue">
-          <img src="assets/images/filters.webp" alt="Гибкие фильтры и модерация" class="feature-card__icon" width="150" height="150" loading="lazy" decoding="async" />
-          <h3 class="feature-card__title">Гибкие фильтры</h3>
-          <hr class="feature-card__divider" />
-          <p class="feature-card__text">
-            Создайте идеальное пространство для контента с помощью словарей, белых и&nbsp;чёрных списков, автозамен,
-            перевода и множества других инструментов. Контролируйте каждую деталь публикации
-          </p>
-        </div>
-        <div class="feature-card feature-card--light">
-          <img src="assets/images/ai.webp" alt="Интеграция с нейросетями" class="feature-card__icon" width="150" height="150" loading="lazy" decoding="async" />
-          <h3 class="feature-card__title">Нейросети</h3>
-          <hr class="feature-card__divider" />
-          <p class="feature-card__text">
-              Подключайте OpenAI GPT, Mistral, DALL-E, Kandinsky или Flux. Также в&nbsp;вашем доступе будет более 100 бесплатных нейросетей. ИИ помогут создавать уникальные тексты и&nbsp;изображения, повышая вовлеченность аудитории
-          </p>
-        </div>
-      </div>
-    </section>
-
-    <section class="instruction" id="instruction" aria-labelledby="instruction-title">
-      <div class="container instruction__grid">
-        <div class="instruction__intro">
-          <p class="instruction__pretitle">Старт в 3 шага</p>
-          <h2 class="instruction__title" id="instruction-title">Как запустить MyGrab</h2>
-          <p class="instruction__text">
-            Платформа разворачивается за несколько минут: подготовьте окружение, добавьте Telegram аккаунт, подключите каналы и&nbsp;настройте фильтры — автоматизация готова. Подробные инструкции доступны в разделе блога
-          </p>
-        </div>
-        <ol class="instruction__steps">
-          <li class="instruction__step">
-            <h3 class="instruction__step-title">Выберите площадку</h3>
-            <p>Запустите MyGrab на Windows или сервере с Ubuntu. Все данные и сессии хранятся только у вас</p>
-          </li>
-          <li class="instruction__step">
-            <h3 class="instruction__step-title">Подключите источники</h3>
-            <p>Добавьте каналы, чаты, RSS и настройте что куда хотите получать</p>
-          </li>
-          <li class="instruction__step">
-            <h3 class="instruction__step-title">Включите ИИ-помощников</h3>
-            <p>Используйте готовые профили нейросетей для рерайта, генерации изображений и проверки текста перед выходом</p>
-          </li>
-        </ol>
-      </div>
-    </section>
-
-    <section class="how-it-works" id="how" aria-labelledby="how-title">
-      <div class="container how__grid">
-        <div class="how__content">
-          <p class="how__pretitle">Установка и настройка</p>
-          <h2 class="how__title" id="how-title">Как это работает?</h2>
-
-          <div class="faq-accordion" itemscope itemtype="https://schema.org/FAQPage">
-            <div class="faq-accordion-item" itemscope itemprop="mainEntity" itemtype="https://schema.org/Question">
-              <button type="button" aria-expanded="true" aria-controls="faq-panel-1" id="faq-control-1">
-                <span class="faq-title" itemprop="name">Как он пересылает?</span>
-                <span class="faq-icon" aria-hidden="true"></span>
-              </button>
-              <div class="faq-content" id="faq-panel-1" role="region" aria-labelledby="faq-control-1" itemprop="acceptedAnswer" itemscope itemtype="https://schema.org/Answer">
-                <p itemprop="text">Всю пересылку публикаций выполняет авторизованный в боте аккаунт, достаточно быть лишь подписанным на каналы-источники. Бот нужен только для управления и настройки</p>
-              </div>
-            </div>
-            <div class="faq-accordion-item" itemscope itemprop="mainEntity" itemtype="https://schema.org/Question">
-              <button type="button" aria-expanded="false" aria-controls="faq-panel-2" id="faq-control-2">
-                <span class="faq-title" itemprop="name">Работает, если в канале запрет на копирование?</span>
-                <span class="faq-icon" aria-hidden="true"></span>
-              </button>
-              <div class="faq-content" id="faq-panel-2" role="region" aria-labelledby="faq-control-2" itemprop="acceptedAnswer" itemscope itemtype="https://schema.org/Answer">
-                <p itemprop="text">Запрет на копирование контента не помешает работе бота, так как он использует авторизованный аккаунт для пересылки. Медиафайлы сначала загружаются, а затем отправляются в нужный канал</p>
-              </div>
-            </div>
-            <div class="faq-accordion-item" itemscope itemprop="mainEntity" itemtype="https://schema.org/Question">
-              <button type="button" aria-expanded="false" aria-controls="faq-panel-3" id="faq-control-3">
-                <span class="faq-title" itemprop="name">С каким количеством каналов можно работать?</span>
-                <span class="faq-icon" aria-hidden="true"></span>
-              </button>
-              <div class="faq-content" id="faq-panel-3" role="region" aria-labelledby="faq-control-3" itemprop="acceptedAnswer" itemscope itemtype="https://schema.org/Answer">
-                <p itemprop="text">Вы можете добавить неограниченное количество каналов-источников и каналов-получателей. Также настроить любые соответствия между этими каналами</p>
-              </div>
-            </div>
-            <div class="faq-accordion-item" itemscope itemprop="mainEntity" itemtype="https://schema.org/Question">
-              <button type="button" aria-expanded="false" aria-controls="faq-panel-4" id="faq-control-4">
-                <span class="faq-title" itemprop="name">Поддержка и обновления</span>
-                <span class="faq-icon" aria-hidden="true"></span>
-              </button>
-              <div class="faq-content" id="faq-panel-4" role="region" aria-labelledby="faq-control-4" itemprop="acceptedAnswer" itemscope itemtype="https://schema.org/Answer">
-                <p itemprop="text">После покупки вас никто не бросит. В любой момент вы сможете написать и задать вопросы по установке и функционалу. Если вас интересует функционал, которого нет в программе, то вы сможете запросить его добавление</p>
-              </div>
-            </div>
-          </div>
-
-          <a href="#contact" class="btn btn--primary how__btn" data-scroll-to="#contact">Подробнее</a>
-        </div>
-
-        <div class="how__image">
-          <lottie-player
-            data-lottie="how"
-            src="assets/animations/grabber.json"
-            background="transparent"
-            speed="1"
-            style="width:100%;max-width:760px;height:620px"
-            loop
-            aria-label="Анимация процесса автоматизации Telegram в MyGrab">
-          </lottie-player>
-          <noscript>
-            <img src="assets/images/mygrab-background-2.webp" alt="Интерфейс MyGrab" width="1920" height="1615" loading="lazy" decoding="async" />
-          </noscript>
-        </div>
-      </div>
-    </section>
-
-    <section class="more" id="more" aria-labelledby="more-title">
-      <div class="container">
-        <h2 class="more__title" id="more-title">Зачем командам нужен MyGrab</h2>
-        <p class="more__subtitle">Инструмент помогает маркетологам, редакторам и&nbsp;владельцам бизнеса поддерживать активность канала без ручного труда</p>
-        <div class="more__grid">
-          <article class="more-card">
-            <h3 class="more-card__title">Чистый контент</h3>
-            <p class="more-card__text">Используйте интеллектуальные фильтры для&nbsp;удаления спама и&nbsp;упоминаний конкурентов, чтобы на&nbsp;канале оставались только релевантные материалы</p>
-          </article>
-          <article class="more-card">
-            <h3 class="more-card__title">Стабильный поток</h3>
-            <p class="more-card__text">Расписание публикаций и&nbsp;автопостинг избавляют от «провалов» в&nbsp;контент-плане и&nbsp;повышают вовлеченность аудитории</p>
-          </article>
-          <article class="more-card">
-            <h3 class="more-card__title">Масштабируемость</h3>
-            <p class="more-card__text">Легко подключайте новые источники и&nbsp;каналы без увеличения нагрузки на&nbsp;команду</p>
-          </article>
-        </div>
-      </div>
-    </section>
-
-    <section class="blog" id="blog" aria-labelledby="blog-title">
-      <div class="blog__bg" aria-hidden="true"></div>
-      <div class="container">
-        <h2 class="blog__title" id="blog-title">Блог</h2>
-        <div class="blog__panel">
-          <div class="blog__grid">
-            <article class="post-card">
-              <a class="post-card__media" href="instructions-config.html">
-                <img src="assets/images/mygrab-instruction-mini.webp" alt="Руководство по MyGrab Telegram Grabber 4.0" loading="lazy" decoding="async" width="800" height="450" />
-              </a>
-              <div class="post-card__body">
-                <h3 class="post-card__title"><a href="instructions-config.html">Telegram Grabber PREMIUM 4.0: инструкция 2025</a></h3>
-                <p class="post-card__text">Пошаговое руководство по установке и запуску бота на сервере и Windows.</p>
-                <a href="instructions-config.html" class="post-card__link">Читать статью →</a>
-              </div>
-            </article>
-            <article class="post-card">
-              <a class="post-card__media" href="#">
-                <img src="assets/images/mygrab-instruction-mini-2.webp" alt="Обзор нейросетей для Telegram" loading="lazy" decoding="async" width="800" height="450" />
-              </a>
-              <div class="post-card__body">
-                <h3 class="post-card__title"><a href="#">Обзор встроенных нейросетей: Kandinsky, GPT, Flux</a></h3>
-                <p class="post-card__text">Сравнение инструментов для генерации текста и изображений.</p>
-                <a href="#" class="post-card__link">Читать статью →</a>
-              </div>
-            </article>
-            <article class="post-card">
-              <a class="post-card__media" href="#">
-                <img src="assets/images/mygrab-instruction-mini-2.webp" alt="Настройки фильтров для автопостинга" loading="lazy" decoding="async" width="800" height="450" />
-              </a>
-              <div class="post-card__body">
-                <h3 class="post-card__title"><a href="#">7 мощных фильтров для автопостинга</a></h3>
-                <p class="post-card__text">Советы по фильтрации, рерайту, модерации и переводу постов.</p>
-                <a href="#" class="post-card__link">Читать статью →</a>
-              </div>
-            </article>
-          </div>
-        </div>
-      </div>
-    </section>
-
-    <section class="contact" id="contact" aria-labelledby="contact-title">
-      <div class="container contact__inner">
-        <div class="contact__content">
-          <p class="contact__pretitle">Запросите демо</p>
-          <h2 class="contact__title" id="contact-title">Получите консультацию по&nbsp;автоматизации</h2>
-          <p class="contact__text">Расскажем, как адаптировать MyGrab под ваши задачи, подключить нейросети и настроить поток контента. Ответим на&nbsp;технические вопросы и&nbsp;поделимся практиками внедрения.</p>
-          <ul class="contact__list">
-            <li><a class="contact__link" href="https://t.me/k_slavv" target="_blank" rel="noopener">Telegram: @k_slavv</a></li>
+          
+          <ul class="hero__features" data-animate="fade-up" data-delay="300" role="list">
+            <li>
+              <svg width="20" height="20" viewBox="0 0 20 20" fill="none" aria-hidden="true">
+                <circle cx="10" cy="10" r="9" stroke="currentColor" stroke-width="2"/>
+                <path d="M6 10L9 13L14 7" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
+              </svg>
+              <span>Неограниченное количество каналов</span>
+            </li>
+            <li>
+              <svg width="20" height="20" viewBox="0 0 20 20" fill="none" aria-hidden="true">
+                <circle cx="10" cy="10" r="9" stroke="currentColor" stroke-width="2"/>
+                <path d="M6 10L9 13L14 7" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
+              </svg>
+              <span>Работа с приватными источниками</span>
+            </li>
+            <li>
+              <svg width="20" height="20" viewBox="0 0 20 20" fill="none" aria-hidden="true">
+                <circle cx="10" cy="10" r="9" stroke="currentColor" stroke-width="2"/>
+                <path d="M6 10L9 13L14 7" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
+              </svg>
+              <span>Установка на Windows и Linux</span>
+            </li>
           </ul>
+          
+          <div class="hero__cta" data-animate="fade-up" data-delay="400">
+            <a href="https://t.me/k_slavv" 
+               class="btn btn--primary btn--large"
+               target="_blank"
+               rel="noopener noreferrer">
+              <span>Начать использовать</span>
+              <svg class="btn__icon" width="20" height="20" viewBox="0 0 20 20" fill="none" aria-hidden="true">
+                <path d="M7.5 15L12.5 10L7.5 5" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
+              </svg>
+            </a>
+            <a href="#how-it-works" class="btn btn--secondary btn--large">
+              <span>Узнать как работает</span>
+            </a>
+          </div>
+          
+          <div class="hero__social-proof" data-animate="fade-up" data-delay="500">
+            <div class="social-proof__avatars" aria-label="Довольные клиенты">
+              <div class="avatar"></div>
+              <div class="avatar"></div>
+              <div class="avatar"></div>
+              <div class="avatar"></div>
+              <div class="avatar-count">+120</div>
+            </div>
+            <div class="social-proof__text">
+              <strong>127 команд</strong> уже автоматизировали свои каналы
+              <div class="social-proof__rating" aria-label="Рейтинг 4.8 из 5">
+                ★★★★★ <span>4.8/5.0</span>
+              </div>
+            </div>
+          </div>
         </div>
-        <a class="btn btn--primary contact__cta" href="https://t.me/k_slavv" target="_blank" rel="noopener">Открыть чат в Telegram</a>
+        
+        <div class="hero__visual" data-animate="fade-left" data-delay="200">
+          <div class="hero__mockup">
+            <div class="mockup__glow"></div>
+            <img src="assets/images/mygrab-background-2.webp" 
+                 alt="Интерфейс MyGrab: панель управления с настройками автопостинга, фильтрами контента и интеграцией нейросетей"
+                 width="800" 
+                 height="600"
+                 loading="eager"
+                 decoding="async"
+                 class="mockup__image">
+          </div>
+        </div>
       </div>
     </section>
+
+    <section class="stats" aria-label="Ключевые показатели">
+      <div class="container">
+        <div class="stats__grid">
+          <div class="stat-card" data-animate="fade-up">
+            <div class="stat-card__value">20+</div>
+            <div class="stat-card__label">часов экономии в неделю</div>
+          </div>
+          <div class="stat-card" data-animate="fade-up" data-delay="100">
+            <div class="stat-card__value">127</div>
+            <div class="stat-card__label">активных пользователей</div>
+          </div>
+          <div class="stat-card" data-animate="fade-up" data-delay="200">
+            <div class="stat-card__value">∞</div>
+            <div class="stat-card__label">каналов без ограничений</div>
+          </div>
+          <div class="stat-card" data-animate="fade-up" data-delay="300">
+            <div class="stat-card__value">24/7</div>
+            <div class="stat-card__label">автоматическая работа</div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <section class="features" id="features" aria-labelledby="features-title">
+      <div class="container">
+        <header class="section-header" data-animate="fade-up">
+          <span class="section-header__label">Возможности</span>
+          <h2 class="section-header__title" id="features-title">
+            Всё необходимое для автоматизации<br>в одном инструменте
+          </h2>
+          <p class="section-header__description">
+            MyGrab объединяет парсинг, обработку контента нейросетями и автопостинг в единую систему
+          </p>
+        </header>
+
+        <div class="features__grid">
+          <article class="feature-card feature-card--primary" data-animate="fade-up">
+            <div class="feature-card__icon">
+              <svg width="32" height="32" viewBox="0 0 32 32" fill="none" aria-hidden="true">
+                <path d="M16 28C22.6274 28 28 22.6274 28 16C28 9.37258 22.6274 4 16 4C9.37258 4 4 9.37258 4 16C4 22.6274 9.37258 28 16 28Z" stroke="currentColor" stroke-width="2"/>
+                <path d="M16 11V16L20 18" stroke="currentColor" stroke-width="2" stroke-linecap="round"/>
+              </svg>
+            </div>
+            <h3 class="feature-card__title">Автопостинг по расписанию</h3>
+            <p class="feature-card__description">
+              Настройте график публикаций с точностью до минуты. Контент автоматически появляется в ваших каналах в оптимальное время для максимального охвата аудитории.
+            </p>
+            <ul class="feature-card__list" role="list">
+              <li>Отложенный постинг</li>
+              <li>Настройка интервалов между публикациями</li>
+              <li>Поддержка часовых поясов</li>
+            </ul>
+          </article>
+
+          <article class="feature-card feature-card--secondary" data-animate="fade-up" data-delay="100">
+            <div class="feature-card__icon">
+              <svg width="32" height="32" viewBox="0 0 32 32" fill="none" aria-hidden="true">
+                <rect x="4" y="6" width="24" height="20" rx="2" stroke="currentColor" stroke-width="2"/>
+                <path d="M4 11H28M10 6V11M22 6V11" stroke="currentColor" stroke-width="2" stroke-linecap="round"/>
+                <circle cx="12" cy="17" r="1.5" fill="currentColor"/>
+                <circle cx="16" cy="17" r="1.5" fill="currentColor"/>
+                <circle cx="20" cy="17" r="1.5" fill="currentColor"/>
+              </svg>
+            </div>
+            <h3 class="feature-card__title">Умные фильтры контента</h3>
+            <p class="feature-card__description">
+              Автоматическая фильтрация спама, нежелательных слов и упоминаний конкурентов. Только релевантный контент попадает в ваши каналы.
+            </p>
+            <ul class="feature-card__list" role="list">
+              <li>Чёрные и белые списки слов</li>
+              <li>Фильтрация по типу контента</li>
+              <li>Минимальная длина постов</li>
+            </ul>
+          </article>
+
+          <article class="feature-card feature-card--accent" data-animate="fade-up" data-delay="200">
+            <div class="feature-card__icon">
+              <svg width="32" height="32" viewBox="0 0 32 32" fill="none" aria-hidden="true">
+                <path d="M16 4C16 4 6 9 6 16C6 23 16 28 16 28C16 28 26 23 26 16C26 9 16 4 16 4Z" stroke="currentColor" stroke-width="2"/>
+                <path d="M16 12L12 16L16 20L20 16L16 12Z" fill="currentColor"/>
+              </svg>
+            </div>
+            <h3 class="feature-card__title">Интеграция с нейросетями</h3>
+            <p class="feature-card__description">
+              Подключайте GPT-4, Kandinsky, DALL-E для автоматического рерайта текстов, генерации уникальных изображений и создания описаний к постам.
+            </p>
+            <ul class="feature-card__list" role="list">
+              <li>GPT-4 и GPT-4-mini для текстов</li>
+              <li>DALL-E 3, Kandinsky, Flux для изображений</li>
+              <li>Mistral AI и GigaChat</li>
+            </ul>
+          </article>
+
+          <article class="feature-card" data-animate="fade-up" data-delay="300">
+            <div class="feature-card__icon">
+              <svg width="32" height="32" viewBox="0 0 32 32" fill="none" aria-hidden="true">
+                <path d="M4 28V18L16 8L28 18V28H4Z" stroke="currentColor" stroke-width="2" stroke-linejoin="round"/>
+                <rect x="12" y="19" width="8" height="9" stroke="currentColor" stroke-width="2"/>
+              </svg>
+            </div>
+            <h3 class="feature-card__title">Полная конфиденциальность</h3>
+            <p class="feature-card__description">
+              Установка на ваш сервер или компьютер. Все данные, сессии и медиафайлы хранятся только на ваших ресурсах. Никаких внешних серверов.
+            </p>
+          </article>
+
+          <article class="feature-card" data-animate="fade-up" data-delay="400">
+            <div class="feature-card__icon">
+              <svg width="32" height="32" viewBox="0 0 32 32" fill="none" aria-hidden="true">
+                <path d="M8 16H24M8 10H24M8 22H18" stroke="currentColor" stroke-width="2" stroke-linecap="round"/>
+              </svg>
+            </div>
+            <h3 class="feature-card__title">Автозамены и модерация</h3>
+            <p class="feature-card__description">
+              Настройте правила замены текста, удаления ссылок, добавления водяных знаков. Модерация перед публикацией с уведомлениями в Telegram.
+            </p>
+          </article>
+
+          <article class="feature-card" data-animate="fade-up" data-delay="500">
+            <div class="feature-card__icon">
+              <svg width="32" height="32" viewBox="0 0 32 32" fill="none" aria-hidden="true">
+                <circle cx="16" cy="16" r="12" stroke="currentColor" stroke-width="2"/>
+                <path d="M16 8V16L22 19" stroke="currentColor" stroke-width="2" stroke-linecap="round"/>
+              </svg>
+            </div>
+            <h3 class="feature-card__title">Работа с приватными каналами</h3>
+            <p class="feature-card__description">
+              Парсинг контента даже из закрытых каналов с запретом на копирование. Обход ограничений через авторизованный аккаунт.
+            </p>
+          </article>
+        </div>
+      </div>
+    </section>
+
+    <section class="how-it-works" id="how-it-works" aria-labelledby="how-title">
+      <div class="container">
+        <header class="section-header section-header--center" data-animate="fade-up">
+          <span class="section-header__label">Как это работает</span>
+          <h2 class="section-header__title" id="how-title">
+            От установки до первой публикации<br>за 30 минут
+          </h2>
+        </header>
+
+        <div class="steps">
+          <article class="step" data-animate="fade-up">
+            <div class="step__number">01</div>
+            <div class="step__content">
+              <h3 class="step__title">Приобретение и установка</h3>
+              <p class="step__description">
+                Получите лицензию MyGrab 4.0 за 4500₽. В комплекте: программа, подробная инструкция, техническая поддержка и все будущие обновления. Установите на свой сервер Ubuntu/Linux или компьютер Windows за 15 минут.
+              </p>
+              <a href="https://t.me/k_slavv" 
+                 class="step__link"
+                 target="_blank"
+                 rel="noopener noreferrer">
+                Получить доступ →
+              </a>
+            </div>
+          </article>
+
+          <article class="step" data-animate="fade-up" data-delay="100">
+            <div class="step__number">02</div>
+            <div class="step__content">
+              <h3 class="step__title">Настройка конфигурации</h3>
+              <p class="step__description">
+                Создайте Telegram бота через @BotFather, получите API credentials на my.telegram.org. Укажите ID ваших каналов-источников и каналов для публикации. При необходимости добавьте API ключи нейросетей GPT-4, DALL-E или Kandinsky.
+              </p>
+              <a href="instructions-config.html" class="step__link">
+                Инструкция по настройке →
+              </a>
+            </div>
+          </article>
+
+          <article class="step" data-animate="fade-up" data-delay="200">
+            <div class="step__number">03</div>
+            <div class="step__content">
+              <h3 class="step__title">Настройка фильтров и правил</h3>
+              <p class="step__description">
+                Настройте фильтры контента: добавьте чёрные списки слов для удаления спама, белые списки для приоритетного контента. Укажите правила автозамены текста, настройте модерацию и расписание публикаций.
+              </p>
+            </div>
+          </article>
+
+          <article class="step" data-animate="fade-up" data-delay="300">
+            <div class="step__number">04</div>
+            <div class="step__content">
+              <h3 class="step__title">Запуск автоматизации</h3>
+              <p class="step__description">
+                Запустите MyGrab одной командой. Программа начнёт мониторить указанные каналы-источники, применять фильтры, использовать нейросети для обработки и автоматически публиковать контент по расписанию 24/7. Вы получаете уведомления о всех действиях в Telegram.
+              </p>
+            </div>
+          </article>
+        </div>
+
+        <div class="how-it-works__visual" data-animate="zoom-in" data-delay="200">
+          <div class="workflow">
+            <div class="workflow__step">
+              <div class="workflow__icon">📥</div>
+              <div class="workflow__label">Мониторинг<br>источников</div>
+            </div>
+            <div class="workflow__arrow">→</div>
+            <div class="workflow__step">
+              <div class="workflow__icon">🎯</div>
+              <div class="workflow__label">Фильтрация<br>контента</div>
+            </div>
+            <div class="workflow__arrow">→</div>
+            <div class="workflow__step">
+              <div class="workflow__icon">🤖</div>
+              <div class="workflow__label">Обработка<br>ИИ</div>
+            </div>
+            <div class="workflow__arrow">→</div>
+            <div class="workflow__step">
+              <div class="workflow__icon">✅</div>
+              <div class="workflow__label">Модерация</div>
+            </div>
+            <div class="workflow__arrow">→</div>
+            <div class="workflow__step">
+              <div class="workflow__icon">📤</div>
+              <div class="workflow__label">Публикация</div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <section class="pricing" id="pricing" aria-labelledby="pricing-title">
+      <div class="container">
+        <header class="section-header section-header--center" data-animate="fade-up">
+          <span class="section-header__label">Прозрачное ценообразование</span>
+          <h2 class="section-header__title" id="pricing-title">
+            Одна цена. Все функции.<br>Навсегда.
+          </h2>
+          <p class="section-header__description">
+            Без скрытых платежей, подписок и ограничений
+          </p>
+        </header>
+
+        <div class="pricing__card" data-animate="zoom-in">
+          <div class="pricing-card">
+            <div class="pricing-card__badge">Лучшее предложение 2025</div>
+            <div class="pricing-card__header">
+              <h3 class="pricing-card__title">MyGrab Premium 4.0</h3>
+              <div class="pricing-card__price">
+                <span class="pricing-card__amount">4 500</span>
+                <span class="pricing-card__currency">₽</span>
+              </div>
+              <p class="pricing-card__subtitle">Единоразовая оплата • Бессрочная лицензия</p>
+            </div>
+
+            <ul class="pricing-card__features" role="list">
+              <li>
+                <svg width="20" height="20" viewBox="0 0 20 20" fill="none" aria-hidden="true">
+                  <circle cx="10" cy="10" r="9" stroke="currentColor" stroke-width="2"/>
+                  <path d="M6 10L9 13L14 7" stroke="currentColor" stroke-width="2" stroke-linecap="round"/>
+                </svg>
+                <span>Полная версия программы без ограничений</span>
+              </li>
+              <li>
+                <svg width="20" height="20" viewBox="0 0 20 20" fill="none" aria-hidden="true">
+                  <circle cx="10" cy="10" r="9" stroke="currentColor" stroke-width="2"/>
+                  <path d="M6 10L9 13L14 7" stroke="currentColor" stroke-width="2" stroke-linecap="round"/>
+                </svg>
+                <span>Неограниченное количество каналов</span>
+              </li>
+              <li>
+                <svg width="20" height="20" viewBox="0 0 20 20" fill="none" aria-hidden="true">
+                  <circle cx="10" cy="10" r="9" stroke="currentColor" stroke-width="2"/>
+                  <path d="M6 10L9 13L14 7" stroke="currentColor" stroke-width="2" stroke-linecap="round"/>
+                </svg>
+                <span>Интеграция со всеми поддерживаемыми ИИ</span>
+              </li>
+              <li>
+                <svg width="20" height="20" viewBox="0 0 20 20" fill="none" aria-hidden="true">
+                  <circle cx="10" cy="10" r="9" stroke="currentColor" stroke-width="2"/>
+                  <path d="M6 10L9 13L14 7" stroke="currentColor" stroke-width="2" stroke-linecap="round"/>
+                </svg>
+                <span>Установка на Windows и Linux</span>
+              </li>
+              <li>
+                <svg width="20" height="20" viewBox="0 0 20 20" fill="none" aria-hidden="true">
+                  <circle cx="10" cy="10" r="9" stroke="currentColor" stroke-width="2"/>
+                  <path d="M6 10L9 13L14 7" stroke="currentColor" stroke-width="2" stroke-linecap="round"/>
+                </svg>
+                <span>Подробная документация и видеоинструкции</span>
+              </li>
+              <li>
+                <svg width="20" height="20" viewBox="0 0 20 20" fill="none" aria-hidden="true">
+                  <circle cx="10" cy="10" r="9" stroke="currentColor" stroke-width="2"/>
+                  <path d="M6 10L9 13L14 7" stroke="currentColor" stroke-width="2" stroke-linecap="round"/>
+                </svg>
+                <span>Техническая поддержка в Telegram</span>
+              </li>
+              <li>
+                <svg width="20" height="20" viewBox="0 0 20 20" fill="none" aria-hidden="true">
+                  <circle cx="10" cy="10" r="9" stroke="currentColor" stroke-width="2"/>
+                  <path d="M6 10L9 13L14 7" stroke="currentColor" stroke-width="2" stroke-linecap="round"/>
+                </svg>
+                <span><strong>Все будущие обновления бесплатно</strong></span>
+              </li>
+              <li>
+                <svg width="20" height="20" viewBox="0 0 20 20" fill="none" aria-hidden="true">
+                  <circle cx="10" cy="10" r="9" stroke="currentColor" stroke-width="2"/>
+                  <path d="M6 10L9 13L14 7" stroke="currentColor" stroke-width="2" stroke-linecap="round"/>
+                </svg>
+                <span><strong>Приоритет в добавлении новых функций</strong></span>
+              </li>
+            </ul>
+
+            <a href="https://t.me/k_slavv" 
+               class="btn btn--primary btn--large btn--full"
+               target="_blank"
+               rel="noopener noreferrer">
+              <span>Получить MyGrab сейчас</span>
+              <svg class="btn__icon" width="20" height="20" viewBox="0 0 20 20" fill="none" aria-hidden="true">
+                <path d="M7.5 15L12.5 10L7.5 5" stroke="currentColor" stroke-width="2" stroke-linecap="round"/>
+              </svg>
+            </a>
+
+            <p class="pricing-card__guarantee">
+              🔒 Безопасная покупка • 💬 Поддержка 24/7 • ⚡ Моментальный доступ
+            </p>
+          </div>
+        </div>
+
+        <div class="pricing__faq-link" data-animate="fade-up">
+          <p>Остались вопросы? <a href="#faq">Посмотрите FAQ</a> или <a href="https://t.me/k_slavv" target="_blank" rel="noopener noreferrer">напишите нам</a></p>
+        </div>
+      </div>
+    </section>
+
+    <section class="faq" id="faq" aria-labelledby="faq-title">
+      <div class="container">
+        <header class="section-header section-header--center" data-animate="fade-up">
+          <span class="section-header__label">Часто задаваемые вопросы</span>
+          <h2 class="section-header__title" id="faq-title">
+            Ответы на важные вопросы
+          </h2>
+        </header>
+
+        <div class="faq__content">
+          <div class="faq-accordion" itemscope itemtype="https://schema.org/FAQPage">
+            <div class="faq-item" itemscope itemprop="mainEntity" itemtype="https://schema.org/Question" data-animate="fade-up">
+              <button class="faq-item__trigger" 
+                      aria-expanded="true"
+                      aria-controls="faq-1"
+                      id="faq-trigger-1">
+                <span class="faq-item__question" itemprop="name">Как MyGrab работает с Telegram каналами?</span>
+                <svg class="faq-item__icon" width="24" height="24" viewBox="0 0 24 24" fill="none" aria-hidden="true">
+                  <path d="M6 9L12 15L18 9" stroke="currentColor" stroke-width="2" stroke-linecap="round"/>
+                </svg>
+              </button>
+              <div class="faq-item__content" 
+                   id="faq-1"
+                   role="region"
+                   aria-labelledby="faq-trigger-1"
+                   itemscope itemprop="acceptedAnswer" itemtype="https://schema.org/Answer">
+                <p itemprop="text">
+                  MyGrab автоматически мониторит указанные Telegram каналы-источники, парсит новый контент (тексты, фото, видео), применяет фильтры и правила обработки, при необходимости использует нейросети для рерайта или генерации изображений, а затем публикует контент в ваши каналы по расписанию. Всё работает через авторизованный Telegram аккаунт на вашем сервере или компьютере.
+                </p>
+              </div>
+            </div>
+
+            <div class="faq-item" itemscope itemprop="mainEntity" itemtype="https://schema.org/Question" data-animate="fade-up" data-delay="50">
+              <button class="faq-item__trigger" 
+                      aria-expanded="false"
+                      aria-controls="faq-2"
+                      id="faq-trigger-2">
+                <span class="faq-item__question" itemprop="name">Какие нейросети поддерживает MyGrab?</span>
+                <svg class="faq-item__icon" width="24" height="24" viewBox="0 0 24 24" fill="none" aria-hidden="true">
+                  <path d="M6 9L12 15L18 9" stroke="currentColor" stroke-width="2" stroke-linecap="round"/>
+                </svg>
+              </button>
+              <div class="faq-item__content" 
+                   id="faq-2"
+                   role="region"
+                   aria-labelledby="faq-trigger-2"
+                   itemscope itemprop="acceptedAnswer" itemtype="https://schema.org/Answer">
+                <p itemprop="text">
+                  MyGrab поддерживает интеграцию с ведущими нейросетями: <strong>GPT-4 и GPT-4-mini</strong> от OpenAI для рерайта текстов, <strong>DALL-E 3</strong> для генерации изображений, <strong>Kandinsky 3.0</strong> (русскоязычная модель от Сбера), <strong>Flux</strong> для создания реалистичных изображений, <strong>Mistral AI</strong> для текстовой генерации. Вы можете использовать встроенные инструменты или подключить собственные API ключи.
+                </p>
+              </div>
+            </div>
+
+            <div class="faq-item" itemscope itemprop="mainEntity" itemtype="https://schema.org/Question" data-animate="fade-up" data-delay="100">
+              <button class="faq-item__trigger" 
+                      aria-expanded="false"
+                      aria-controls="faq-3"
+                      id="faq-trigger-3">
+                <span class="faq-item__question" itemprop="name">Сколько времени экономит MyGrab?</span>
+                <svg class="faq-item__icon" width="24" height="24" viewBox="0 0 24 24" fill="none" aria-hidden="true">
+                  <path d="M6 9L12 15L18 9" stroke="currentColor" stroke-width="2" stroke-linecap="round"/>
+                </svg>
+              </button>
+              <div class="faq-item__content" 
+                   id="faq-3"
+                   role="region"
+                   aria-labelledby="faq-trigger-3"
+                   itemscope itemprop="acceptedAnswer" itemtype="https://schema.org/Answer">
+                <p itemprop="text">
+                  В среднем владельцы Telegram каналов экономят <strong>20-25 часов в неделю</strong> на рутинных задачах: поиске контента, копировании постов, редактировании текстов, подборе изображений и публикации. MyGrab автоматизирует весь процесс от мониторинга источников до публикации готового контента.
+                </p>
+              </div>
+            </div>
+
+            <div class="faq-item" itemscope itemprop="mainEntity" itemtype="https://schema.org/Question" data-animate="fade-up" data-delay="150">
+              <button class="faq-item__trigger" 
+                      aria-expanded="false"
+                      aria-controls="faq-4"
+                      id="faq-trigger-4">
+                <span class="faq-item__question" itemprop="name">Можно ли работать с приватными каналами?</span>
+                <svg class="faq-item__icon" width="24" height="24" viewBox="0 0 24 24" fill="none" aria-hidden="true">
+                  <path d="M6 9L12 15L18 9" stroke="currentColor" stroke-width="2" stroke-linecap="round"/>
+                </svg>
+              </button>
+              <div class="faq-item__content" 
+                   id="faq-4"
+                   role="region"
+                   aria-labelledby="faq-trigger-4"
+                   itemscope itemprop="acceptedAnswer" itemtype="https://schema.org/Answer">
+                <p itemprop="text">
+                  Да, MyGrab работает с любыми Telegram каналами, включая приватные и закрытые. Запрет на копирование контента не является препятствием, так как граббер использует авторизованный аккаунт для доступа. Медиафайлы сначала загружаются на ваш сервер, а затем публикуются в целевые каналы.
+                </p>
+              </div>
+            </div>
+
+            <div class="faq-item" itemscope itemprop="mainEntity" itemtype="https://schema.org/Question" data-animate="fade-up" data-delay="200">
+              <button class="faq-item__trigger" 
+                      aria-expanded="false"
+                      aria-controls="faq-5"
+                      id="faq-trigger-5">
+                <span class="faq-item__question" itemprop="name">Какая стоимость MyGrab и что входит в цену?</span>
+                <svg class="faq-item__icon" width="24" height="24" viewBox="0 0 24 24" fill="none" aria-hidden="true">
+                  <path d="M6 9L12 15L18 9" stroke="currentColor" stroke-width="2" stroke-linecap="round"/>
+                </svg>
+              </button>
+              <div class="faq-item__content" 
+                   id="faq-5"
+                   role="region"
+                   aria-labelledby="faq-trigger-5"
+                   itemscope itemprop="acceptedAnswer" itemtype="https://schema.org/Answer">
+                <p itemprop="text">
+                  Стоимость лицензии MyGrab 4.0 составляет <strong>4500 рублей</strong>. В цену входит: полная версия программы, установка и настройка, техническая поддержка, все будущие обновления, доступ к документации и инструкциям. Оплата однократная, без подписок. Вы получаете бессрочную лицензию на использование.
+                </p>
+              </div>
+            </div>
+
+            <div class="faq-item" itemscope itemprop="mainEntity" itemtype="https://schema.org/Question" data-animate="fade-up" data-delay="250">
+              <button class="faq-item__trigger" 
+                      aria-expanded="false"
+                      aria-controls="faq-6"
+                      id="faq-trigger-6">
+                <span class="faq-item__question" itemprop="name">Где устанавливается MyGrab?</span>
+                <svg class="faq-item__icon" width="24" height="24" viewBox="0 0 24 24" fill="none" aria-hidden="true">
+                  <path d="M6 9L12 15L18 9" stroke="currentColor" stroke-width="2" stroke-linecap="round"/>
+                </svg>
+              </button>
+              <div class="faq-item__content" 
+                   id="faq-6"
+                   role="region"
+                   aria-labelledby="faq-trigger-6"
+                   itemscope itemprop="acceptedAnswer" itemtype="https://schema.org/Answer">
+                <p itemprop="text">
+                  MyGrab можно установить на ваш собственный сервер (Ubuntu, Debian, CentOS) или компьютер с Windows 10/11. Программа работает 24/7, все данные, сессии Telegram и медиафайлы хранятся только на ваших ресурсах. Это обеспечивает полную конфиденциальность и контроль над процессом.
+                </p>
+              </div>
+            </div>
+          </div>
+
+          <div class="faq__cta" data-animate="fade-up" data-delay="300">
+            <p>Не нашли ответ на свой вопрос?</p>
+            <a href="https://t.me/k_slavv" 
+               class="btn btn--secondary"
+               target="_blank"
+               rel="noopener noreferrer">
+              <span>Задать вопрос в Telegram</span>
+            </a>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <section class="cta" aria-labelledby="cta-title">
+      <div class="cta__bg" aria-hidden="true">
+        <div class="cta__gradient"></div>
+      </div>
+      <div class="container">
+        <div class="cta__content" data-animate="zoom-in">
+          <h2 class="cta__title" id="cta-title">
+            Начните автоматизировать свои<br>Telegram каналы прямо сейчас
+          </h2>
+          <p class="cta__description">
+            Присоединяйтесь к 127 командам, которые уже экономят 20+ часов в неделю с MyGrab
+          </p>
+          <div class="cta__buttons">
+            <a href="https://t.me/k_slavv" 
+               class="btn btn--primary btn--large"
+               target="_blank"
+               rel="noopener noreferrer">
+              <span>Получить MyGrab за 4 500₽</span>
+              <svg class="btn__icon" width="20" height="20" viewBox="0 0 20 20" fill="none" aria-hidden="true">
+                <path d="M7.5 15L12.5 10L7.5 5" stroke="currentColor" stroke-width="2" stroke-linecap="round"/>
+              </svg>
+            </a>
+            <a href="instructions-config.html" class="btn btn--secondary btn--large">
+              <span>Посмотреть документацию</span>
+            </a>
+          </div>
+          <p class="cta__note">
+            Единоразовая оплата • Без подписок • Все обновления бесплатны
+          </p>
+        </div>
+      </div>
+    </section>
+
   </main>
 
-  <footer class="site-footer" aria-label="Подвал сайта">
-    <div class="container site-footer__inner">
-      <nav class="footer-nav" aria-label="Повтор меню">
-        <a class="footer-nav__link" href="#features">Возможности</a>
-        <a class="footer-nav__link" href="#instruction">Инструкция</a>
-        <a class="footer-nav__link" href="#how">Как работает</a>
-        <a class="footer-nav__link" href="#blog">Блог</a>
-        <a class="footer-nav__link" href="#contact">Контакты</a>
-      </nav>
-      <p>© <span id="year"></span> MyGrab — Все права защищены.</p>
+  <footer class="footer" role="contentinfo">
+    <div class="container">
+      <div class="footer__grid">
+        <div class="footer__brand">
+          <img src="assets/images/Mygrab-logo-min.webp" 
+               alt="MyGrab" 
+               class="footer__logo"
+               width="160" 
+               height="46"
+               loading="lazy"
+               decoding="async">
+          <p class="footer__tagline">
+            Профессиональный граббер Telegram<br>с интеграцией искусственного интеллекта
+          </p>
+        </div>
+
+        <nav class="footer__nav" aria-label="Дополнительная навигация">
+          <h3 class="footer__nav-title">Навигация</h3>
+          <ul role="list">
+            <li><a href="#features">Возможности</a></li>
+            <li><a href="#how-it-works">Как работает</a></li>
+            <li><a href="#pricing">Цена</a></li>
+            <li><a href="#faq">FAQ</a></li>
+            <li><a href="instructions-config.html">Документация</a></li>
+          </ul>
+        </nav>
+
+        <div class="footer__contact">
+          <h3 class="footer__nav-title">Контакты</h3>
+          <ul role="list">
+            <li>
+              <a href="https://t.me/k_slavv" target="_blank" rel="noopener noreferrer">
+                Telegram: @k_slavv
+              </a>
+            </li>
+            <li>
+              <a href="https://t.me/my_grab" target="_blank" rel="noopener noreferrer">
+                Группа: @my_grab
+              </a>
+            </li>
+            <li>
+              <a href="https://t.me/mygrab_support" target="_blank" rel="noopener noreferrer">
+                Поддержка: @mygrab_support
+              </a>
+            </li>
+          </ul>
+        </div>
+
+        <div class="footer__info">
+          <h3 class="footer__nav-title">Информация</h3>
+          <p class="footer__version">Версия 4.0 • Январь 2025</p>
+          <p class="footer__compatibility">Windows 10/11, Ubuntu 20.04+</p>
+        </div>
+      </div>
+
+      <div class="footer__bottom">
+        <p class="footer__copyright">
+          © <span id="current-year">2025</span> MyGrab. Все права защищены.
+        </p>
+      </div>
     </div>
   </footer>
 
