@@ -1,14 +1,6 @@
-/**
- * MyGrab Modern Website - JavaScript
- * Enhanced UX with smooth animations and interactions
- */
-
 (() => {
   'use strict';
 
-  // =============================================
-  // Utility Functions
-  // =============================================
   
   const debounce = (func, wait) => {
     let timeout;
@@ -33,9 +25,6 @@
     };
   };
 
-  // =============================================
-  // Current Year Update
-  // =============================================
   
   const updateCurrentYear = () => {
     const yearElement = document.getElementById('current-year');
@@ -44,85 +33,6 @@
     }
   };
 
-  // =============================================
-  // Mobile Navigation
-  // =============================================
-  
-  const initMobileNav = () => {
-    const header = document.querySelector('[data-header]');
-    const toggle = document.querySelector('[data-nav-toggle]');
-    const nav = document.querySelector('[data-nav]');
-    
-    if (!toggle || !nav) return;
-
-    const navLinks = nav.querySelectorAll('.nav-link');
-    const mediaQuery = window.matchMedia('(min-width: 769px)');
-
-    const openNav = () => {
-      toggle.setAttribute('aria-expanded', 'true');
-      nav.classList.add('is-open');
-      nav.setAttribute('aria-hidden', 'false');
-      document.body.style.overflow = 'hidden';
-    };
-
-    const closeNav = () => {
-      toggle.setAttribute('aria-expanded', 'false');
-      nav.classList.remove('is-open');
-      nav.setAttribute('aria-hidden', 'true');
-      document.body.style.overflow = '';
-    };
-
-    const toggleNav = () => {
-      const isExpanded = toggle.getAttribute('aria-expanded') === 'true';
-      isExpanded ? closeNav() : openNav();
-    };
-
-    // Toggle button click
-    toggle.addEventListener('click', toggleNav);
-
-    // Close nav when clicking links
-    navLinks.forEach(link => {
-      link.addEventListener('click', () => {
-        if (nav.classList.contains('is-open')) {
-          closeNav();
-        }
-      });
-    });
-
-    // Close nav on escape key
-    document.addEventListener('keydown', (e) => {
-      if (e.key === 'Escape' && nav.classList.contains('is-open')) {
-        closeNav();
-        toggle.focus();
-      }
-    });
-
-    // Close nav when clicking outside
-    document.addEventListener('click', (e) => {
-      if (nav.classList.contains('is-open') && 
-          !nav.contains(e.target) && 
-          !toggle.contains(e.target)) {
-        closeNav();
-      }
-    });
-
-    // Handle responsive behavior
-    const handleMediaChange = (e) => {
-      if (e.matches) {
-        closeNav();
-        nav.setAttribute('aria-hidden', 'false');
-      } else {
-        nav.setAttribute('aria-hidden', nav.classList.contains('is-open') ? 'false' : 'true');
-      }
-    };
-
-    mediaQuery.addEventListener('change', handleMediaChange);
-    handleMediaChange(mediaQuery);
-  };
-
-  // =============================================
-  // Smooth Scroll
-  // =============================================
   
   const initSmoothScroll = () => {
     const links = document.querySelectorAll('a[href^="#"]');
@@ -227,42 +137,6 @@
         }
       }, 200));
     });
-  };
-
-  // =============================================
-  // Scroll Animations (Intersection Observer)
-  // =============================================
-  
-  const initScrollAnimations = () => {
-    const animatedElements = document.querySelectorAll('[data-animate]');
-    if (!animatedElements.length) return;
-
-    const motionQuery = window.matchMedia('(prefers-reduced-motion: reduce)');
-    
-    // If user prefers reduced motion, show everything immediately
-    if (motionQuery.matches) {
-      animatedElements.forEach(el => {
-        el.style.opacity = '1';
-        el.style.transform = 'none';
-      });
-      return;
-    }
-
-    const observerOptions = {
-      threshold: 0.1,
-      rootMargin: '0px 0px -50px 0px'
-    };
-
-    const observer = new IntersectionObserver((entries) => {
-      entries.forEach(entry => {
-        if (entry.isIntersecting) {
-          entry.target.classList.add('animated');
-          observer.unobserve(entry.target);
-        }
-      });
-    }, observerOptions);
-
-    animatedElements.forEach(el => observer.observe(el));
   };
 
   // =============================================
@@ -371,10 +245,8 @@
   
   const init = () => {
     updateCurrentYear();
-    initMobileNav();
     initSmoothScroll();
     initFAQ();
-    initScrollAnimations();
     initHeaderScroll();
     initLazyLoad();
     secureExternalLinks();
