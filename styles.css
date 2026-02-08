@@ -1321,7 +1321,6 @@ strong {
   .nav-toggle,
   .btn,
   .footer {
-  .footer {
     display: none;
   }
   
@@ -1334,4 +1333,4 @@ strong {
     text-decoration: underline;
   }
 }
-}
+
