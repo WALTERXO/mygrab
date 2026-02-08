@@ -48,21 +48,24 @@
         const behavior = motionQuery.matches ? 'auto' : 'smooth';
         target.scrollIntoView({ behavior, block: 'start' });
 
-        const focusTarget = target;
-        const previousTabIndex = focusTarget.getAttribute('tabindex');
-        if (previousTabIndex === null) {
-          focusTarget.setAttribute('tabindex', '-1');
-        }
-        focusTarget.focus({ preventScroll: true });
-
-        const cleanup = () => {
+        // Отложенный focus через rAF — убирает forced reflow
+        requestAnimationFrame(() => {
+          const previousTabIndex = target.getAttribute('tabindex');
           if (previousTabIndex === null) {
-            focusTarget.removeAttribute('tabindex');
+            target.setAttribute('tabindex', '-1');
           }
-          focusTarget.removeEventListener('blur', cleanup);
-        };
-        focusTarget.addEventListener('blur', cleanup);
+          target.focus({ preventScroll: true });
 
+          const cleanup = () => {
+            if (previousTabIndex === null) {
+              target.removeAttribute('tabindex');
+            }
+            target.removeEventListener('blur', cleanup);
+          };
+          target.addEventListener('blur', cleanup);
+        });
+
+        // Close mobile nav if open
         const nav = document.querySelector('[data-nav]');
         if (nav && nav.classList.contains('is-open')) {
           const toggle = document.querySelector('[data-nav-toggle]');
@@ -77,13 +80,12 @@
   };
 
   // =============================================
-  // FAQ Accordion — ИСПРАВЛЕН forced reflow
+  // FAQ Accordion
   // =============================================
   const initFAQ = () => {
     const faqItems = document.querySelectorAll('.faq-item');
     if (!faqItems.length) return;
 
-    // Кешируем все высоты ДО изменения стилей (batch read)
     const heights = new Map();
     faqItems.forEach(item => {
       const content = item.querySelector('.faq-item__content');
@@ -92,7 +94,6 @@
       }
     });
 
-    // Теперь применяем стили (batch write)
     faqItems.forEach(item => {
       const trigger = item.querySelector('.faq-item__trigger');
       const content = item.querySelector('.faq-item__content');
@@ -103,11 +104,8 @@
 
       trigger.addEventListener('click', () => {
         const isCurrentlyExpanded = trigger.getAttribute('aria-expanded') === 'true';
-
-        // Batch read: собираем высоту ТЕКУЩЕГО элемента до записи
         const targetHeight = content.scrollHeight;
 
-        // Batch write: закрываем все остальные
         faqItems.forEach(otherItem => {
           if (otherItem !== item) {
             const otherTrigger = otherItem.querySelector('.faq-item__trigger');
@@ -119,7 +117,6 @@
           }
         });
 
-        // Toggle current
         if (isCurrentlyExpanded) {
           trigger.setAttribute('aria-expanded', 'false');
           content.style.maxHeight = '0';
@@ -129,12 +126,10 @@
         }
       });
 
-      // Resize: используем requestAnimationFrame для безопасного чтения
       window.addEventListener('resize', debounce(() => {
         if (trigger.getAttribute('aria-expanded') === 'true') {
           requestAnimationFrame(() => {
-            const newHeight = content.scrollHeight;
-            content.style.maxHeight = `${newHeight}px`;
+            content.style.maxHeight = `${content.scrollHeight}px`;
           });
         }
       }, 200));
@@ -142,7 +137,7 @@
   };
 
   // =============================================
-  // Header Scroll — оптимизирован
+  // Header Scroll
   // =============================================
   const initHeaderScroll = () => {
     const header = document.querySelector('[data-header]');
@@ -153,7 +148,6 @@
 
     const handleScroll = throttle(() => {
       const isScrolled = window.pageYOffset > threshold;
-      // Пишем в DOM только при изменении состояния
       if (isScrolled !== lastState) {
         header.style.boxShadow = isScrolled
           ? '0 2px 10px rgba(0, 0, 0, 0.05)'
