@@ -44,11 +44,14 @@ j=d.createElement(s),dl=l!='dataLayer'?'&l='+l:'';j.async=true;j.src=
   <link rel="preload" 
         as="image" 
         href="assets/images/mygrab-background-2.avif"
-        type="image/avif">
+        type="image/avif"
+        media="(min-width: 769px)">
   <link rel="preload" 
         as="image" 
         href="assets/images/mygrab-background-2.webp"
-        type="image/webp">
+        type="image/webp"
+        media="(min-width: 769px)">
+
 
 
   <!-- Performance & Preloading -->
@@ -418,6 +421,8 @@ height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
           <div class="hero__mockup">
             <div class="mockup__glow"></div>
             <picture>
+              <source media="(max-width: 768px)" 
+                      srcset="data:image/gif;base64,R0lGODlhAQABAAD/ACwAAAAAAQABAAACADs=">
               <source srcset="assets/images/mygrab-background-2.avif" type="image/avif">
               <source srcset="assets/images/mygrab-background-2.webp" type="image/webp">
               <img src="assets/images/mygrab-background-2.webp" 
@@ -430,6 +435,8 @@ height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
                   class="mockup__image">
             </picture>
           </div>
+        </div>
+
 
         </div>
       </div>
