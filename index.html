@@ -1,13 +1,6 @@
 <!DOCTYPE html>
 <html lang="ru">
 <head>
-  <!-- Google Tag Manager -->
-<script>(function(w,d,s,l,i){w[l]=w[l]||[];w[l].push({'gtm.start':
-new Date().getTime(),event:'gtm.js'});var f=d.getElementsByTagName(s)[0],
-j=d.createElement(s),dl=l!='dataLayer'?'&l='+l:'';j.async=true;j.src=
-'https://www.googletagmanager.com/gtm.js?id='+i+dl;f.parentNode.insertBefore(j,f);
-})(window,document,'script','dataLayer','GTM-TKGPKP25');</script>
-<!-- End Google Tag Manager -->
   <meta charset="utf-8">
   <meta name="viewport" content="width=device-width,initial-scale=1,viewport-fit=cover">
   <meta http-equiv="X-UA-Compatible" content="IE=edge">
@@ -43,7 +36,7 @@ j=d.createElement(s),dl=l!='dataLayer'?'&l='+l:'';j.async=true;j.src=
   <!-- LCP Image Preload — ПЕРВЫМ делом, до всех остальных ресурсов -->
   <link rel="preload" 
         as="image" 
-        href="assets/images/mygrab-background-2.avif"
+        href="assets/images/mygrab-background-2.avif" 
         type="image/avif"
         media="(min-width: 769px)">
   <link rel="preload" 
@@ -85,8 +78,8 @@ j=d.createElement(s),dl=l!='dataLayer'?'&l='+l:'';j.async=true;j.src=
         "applicationCategory": "BusinessApplication",
         "applicationSubCategory": "Social Media Management",
         "operatingSystem": ["Windows 10/11", "Ubuntu 20.04+", "Linux Server"],
-        "softwareVersion": "4.0",
-        "releaseNotes": "Версия 4.0 включает полную интеграцию с GPT-5, улучшенные фильтры контента, поддержку Nano Banana 3.0 и DALL-E 3",
+        "softwareVersion": "5.0",
+        "releaseNotes": "Версия 5.0 включает полную интеграцию с GPT-5, улучшенные фильтры контента, поддержку Nano Banana 3.0 и DALL-E 3",
         "url": "https://mygrab.ru/",
         "downloadUrl": "https://t.me/k_slavv",
         "screenshot": "https://mygrab.ru/assets/images/mygrab-background-2.webp",
@@ -110,7 +103,7 @@ j=d.createElement(s),dl=l!='dataLayer'?'&l='+l:'';j.async=true;j.src=
         },
         "featureList": [
           "Автоматический парсинг контента из Telegram каналов",
-          "Интеграция с GPT-5, GPT-5-mini для рерайта текстов",
+          "Интеграция с GPT-5, GPT-4-mini для рерайта текстов",
           "Генерация изображений через DALL-E 3, Nano Banana 3.0, Flux",
           "Умные фильтры контента и модерация",
           "Автопостинг по расписанию с отложенной публикацией",
@@ -120,7 +113,7 @@ j=d.createElement(s),dl=l!='dataLayer'?'&l='+l:'';j.async=true;j.src=
           "Белые и чёрные списки слов",
           "RSS триггеры и webhook интеграции"
         ],
-        "softwareRequirements": "Python 3.8+, Telegram Account, API credentials",
+        "softwareRequirements": "Python 3.12+, Telegram Account, API credentials",
         "softwareHelp": "https://mygrab.ru/instructions-config.html",
         "publisher": {
           "@type": "Organization",
@@ -184,7 +177,7 @@ j=d.createElement(s),dl=l!='dataLayer'?'&l='+l:'';j.async=true;j.src=
             "name": "Какие нейросети поддерживает софт?",
             "acceptedAnswer": {
               "@type": "Answer",
-              "text": "Софт поддерживает интеграцию с ведущими нейросетями: GPT-5 и GPT-5-mini от OpenAI для рерайта текстов, DALL-E 3 для генерации изображений, Nano Banana 3.0 (русскоязычная модель от Сбера), Flux для создания реалистичных изображений, Mistral AI для текстовой генерации. Вы можете использовать встроенные инструменты или подключить собственные API ключи."
+              "text": "Софт поддерживает интеграцию с ведущими нейросетями: GPT-5 и GPT-4-mini от OpenAI для рерайта текстов, DALL-E 3 для генерации изображений, Nano Banana 3.0 (русскоязычная модель от Сбера), Flux для создания реалистичных изображений, Mistral AI для текстовой генерации. Вы можете использовать встроенные инструменты или подключить собственные API ключи."
             }
           },
           {
@@ -231,7 +224,7 @@ j=d.createElement(s),dl=l!='dataLayer'?'&l='+l:'';j.async=true;j.src=
             "@type": "HowToStep",
             "position": 1,
             "name": "Приобретение лицензии",
-            "text": "Свяжитесь с нами в Telegram @k_slavv для покупки лицензии MyGrab 4.0 за 4500 рублей",
+            "text": "Свяжитесь с нами в Telegram @k_slavv для покупки лицензии MyGrab 5.0 за 4500 рублей",
             "url": "https://t.me/k_slavv"
           },
           {
@@ -287,10 +280,6 @@ j=d.createElement(s),dl=l!='dataLayer'?'&l='+l:'';j.async=true;j.src=
   </script>
 </head>
 <body>
-  <!-- Google Tag Manager (noscript) -->
-<noscript><iframe src="https://www.googletagmanager.com/ns.html?id=GTM-TKGPKP25"
-height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
-<!-- End Google Tag Manager (noscript) -->
   <header class="header" data-header role="banner">
     <nav class="container header__nav" aria-label="Основная навигация">
       <a href="/" class="logo" aria-label="MyGrab — На главную">
@@ -422,18 +411,22 @@ height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
             <div class="mockup__glow"></div>
             <picture>
               <source media="(max-width: 768px)" 
-                      srcset="data:image/gif;base64,R0lGODlhAQABAAD/ACwAAAAAAQABAAACADs=">
-              <source srcset="assets/images/mygrab-background-2.avif" type="image/avif">
-              <source srcset="assets/images/mygrab-background-2.webp" type="image/webp">
+                      srcset="data:image/gif;base64,R0lGODlhAQABAAD/ACwAAAAAAQABAAACADs=" 
+                      type="image/gif">
+              <source srcset="assets/images/mygrab-background-2.avif" 
+                      type="image/avif">
+              <source srcset="assets/images/mygrab-background-2.webp" 
+                      type="image/webp">
               <img src="assets/images/mygrab-background-2.webp" 
-                  alt="Интерфейс MyGrab: панель управления с настройками автопостинга, фильтрами контента и интеграцией нейросетей"
+                  alt="Интерфейс MyGrab: панель управления с настройками автопостинга, фильтрами контента и интеграцией нейросетей" 
                   width="800" 
-                  height="600"
-                  loading="eager"
-                  decoding="async"
-                  fetchpriority="high"
+                  height="600" 
+                  loading="eager" 
+                  decoding="async" 
+                  fetchpriority="high" 
                   class="mockup__image">
             </picture>
+
           </div>
         </div>
 
@@ -732,7 +725,7 @@ height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
           <div class="pricing-card">
             <div class="pricing-card__badge">Лучшее предложение 2026</div>
             <div class="pricing-card__header">
-              <h3 class="pricing-card__title">MyGrab Premium 4.0</h3>
+              <h3 class="pricing-card__title">MyGrab Premium 5.0</h3>
               <div class="pricing-card__price">
                 <span class="pricing-card__amount">4 500</span>
                 <span class="pricing-card__currency">₽</span>
@@ -869,7 +862,7 @@ height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
                    aria-labelledby="faq-trigger-2"
                    itemscope itemprop="acceptedAnswer" itemtype="https://schema.org/Answer">
                 <p itemprop="text">
-                  Софт поддерживает интеграцию с ведущими нейросетями: <strong>GPT-5 и GPT-5-mini</strong> от OpenAI для рерайта текстов, <strong>DALL-E 3</strong> для генерации изображений, <strong>Nano Banana 3.0</strong> (русскоязычная модель от Сбера), <strong>Flux</strong> для создания реалистичных изображений, <strong>Mistral AI</strong> для текстовой генерации. Вы можете использовать встроенные инструменты или подключить собственные API ключи.
+                  Софт поддерживает интеграцию с ведущими нейросетями: <strong>GPT-5 и GPT-4-mini</strong> от OpenAI для рерайта текстов, <strong>DALL-E 3</strong> для генерации изображений, <strong>Nano Banana 3.0</strong> (русскоязычная модель от Сбера), <strong>Flux</strong> для создания реалистичных изображений, <strong>Mistral AI</strong> для текстовой генерации. Вы можете использовать встроенные инструменты или подключить собственные API ключи.
                 </p>
               </div>
             </div>
@@ -1039,5 +1032,18 @@ height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
   </footer>
 
   <script src="script.js" defer></script>
+<!-- GTM: отложенная загрузка (включая Метрику) -->
+<script>
+window.addEventListener('load', function() {
+  setTimeout(function() {
+    window.dataLayer = window.dataLayer || [];
+    window.dataLayer.push({'gtm.start': new Date().getTime(), event: 'gtm.js'});
+    var j = document.createElement('script');
+    j.async = true;
+    j.src = 'https://www.googletagmanager.com/gtm.js?id=GTM-TKGPKP25';
+    document.head.appendChild(j);
+  }, 2500);
+});
+</script>
 </body>
 </html>
