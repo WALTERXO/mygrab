@@ -43,8 +43,13 @@ j=d.createElement(s),dl=l!='dataLayer'?'&l='+l:'';j.async=true;j.src=
   <!-- LCP Image Preload — ПЕРВЫМ делом, до всех остальных ресурсов -->
   <link rel="preload" 
         as="image" 
+        href="assets/images/mygrab-background-2.avif"
+        type="image/avif">
+  <link rel="preload" 
+        as="image" 
         href="assets/images/mygrab-background-2.webp"
-        fetchpriority="high">
+        type="image/webp">
+
 
   <!-- Performance & Preloading -->
   <link rel="preconnect" href="https://fonts.googleapis.com" crossorigin>
@@ -412,14 +417,20 @@ height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
         <div class="hero__visual">
           <div class="hero__mockup">
             <div class="mockup__glow"></div>
-            <img src="assets/images/mygrab-background-2.webp" 
-                 alt="Интерфейс MyGrab: панель управления с настройками автопостинга, фильтрами контента и интеграцией нейросетей"
-                 width="800" 
-                 height="600"
-                 loading="eager"
-                 decoding="async"
-                 class="mockup__image">
+            <picture>
+              <source srcset="assets/images/mygrab-background-2.avif" type="image/avif">
+              <source srcset="assets/images/mygrab-background-2.webp" type="image/webp">
+              <img src="assets/images/mygrab-background-2.webp" 
+                  alt="Интерфейс MyGrab: панель управления с настройками автопостинга, фильтрами контента и интеграцией нейросетей"
+                  width="800" 
+                  height="600"
+                  loading="eager"
+                  decoding="async"
+                  fetchpriority="high"
+                  class="mockup__image">
+            </picture>
           </div>
+
         </div>
       </div>
     </section>
